@@ -1,0 +1,33 @@
+# Staged experiment plan (scripts/run_experiments.py).  Test data are used only in evaluate_models.py.
+stages:
+  1_sanity: smoke runs (2 epochs) + unit tests
+  2_initial: [rnn, lstm, gru, transformer, mafnet-attention, mafnet-concat] default hyper-parameters, seed 42
+  3_tuning:
+    sampler: TPE(seed=42)
+    pruner: MedianPruner(n_startup_trials=5, n_warmup_steps=4)
+    objective: validation macro-F1 (lookback 14, horizon 1)
+    trials: {mafnet: 24, gru: 10, transformer: 10}
+    epochs: 20
+    patience: 5
+    space:
+      hidden: [32, 64, 128]
+      layers: [1, 2]
+      dropout: [0.1, 0.2, 0.3]
+      lr: [3.0e-3, 1.0e-3, 3.0e-4]
+      batch_size: [128, 256]
+      weight_decay: [0.0, 1.0e-4, 1.0e-3]
+      loss: [ce, wce, focal]
+      mafnet_only:
+        encoder: [gru, lstm, transformer]
+        d_model: [32, 64, 128]
+        heads: [1, 2, 4]
+        modality_dropout: [0.0, 0.1, 0.2]
+        token_self_attention: [true, false]
+      transformer_only:
+        heads: [1, 2, 4]
+  4_seeds: {mafnet: 5, mafnet_concat: 5, gru: 5, transformer: 3, lstm: 3, rnn: 3}
+  5_ablation: 13 variants x 3 seeds (see ABLATIONS in run_experiments.py)
+  6_horizons: [3, 7] x {mafnet, gru} x 3 seeds; classical baselines for h = 3, 7
+  7_lookback: [7, 30] x mafnet x 3 seeds
+  8_spatial: 20 % of sites held out (seed 0) x {mafnet, gru} x 3 seeds
+  9_test: single evaluation of all frozen configurations (evaluate_models.py)

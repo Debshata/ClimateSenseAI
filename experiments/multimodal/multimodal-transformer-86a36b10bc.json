@@ -1,0 +1,237 @@
+{
+  "run_id": "multimodal-transformer-86a36b10bc",
+  "group": "multimodal",
+  "config": {
+    "model": "transformer",
+    "lookback": 14,
+    "horizon": 1,
+    "hidden": 64,
+    "d_model": 64,
+    "layers": 1,
+    "dropout": 0.2,
+    "heads": 2,
+    "lr": 0.001,
+    "batch_size": 256,
+    "optimizer": "adamw",
+    "weight_decay": 0.0001,
+    "loss": "wce",
+    "focal_gamma": 2.0,
+    "epochs": 40,
+    "patience": 6,
+    "seed": 42,
+    "modalities": [
+      "climate",
+      "air",
+      "dryness"
+    ],
+    "use_context": true,
+    "fusion": "attention",
+    "encoder": "gru",
+    "air_encoder": "gru",
+    "dry_encoder": "gru",
+    "token_self_attention": true,
+    "modality_dropout": 0.1,
+    "drop_features": [],
+    "max_missing": 3,
+    "train_sites": null,
+    "grad_clip": 1.0
+  },
+  "status": "complete",
+  "n_params": 49156,
+  "n_train": 109762,
+  "n_val": 21484,
+  "best_epoch": 4,
+  "epochs_run": 10,
+  "train_time_s": 53.650485038757324,
+  "nan_batches": 0,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.6880532911607435,
+      "train_nll": 0.6241409778594971,
+      "val_nll": 0.43742454051971436,
+      "train_macro_f1": 0.7102446753536991,
+      "val_macro_f1": 0.7213472870296749,
+      "val_balanced_accuracy": 0.7345562955218472,
+      "val_accuracy": 0.8160491528579408,
+      "lr": 0.001
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.6394623105342572,
+      "train_nll": 0.5936267971992493,
+      "val_nll": 0.39680495858192444,
+      "train_macro_f1": 0.7171527353705206,
+      "val_macro_f1": 0.7335179102150067,
+      "val_balanced_accuracy": 0.7388053404313172,
+      "val_accuracy": 0.83890336994973,
+      "lr": 0.001
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.62816931435834,
+      "train_nll": 0.6021705865859985,
+      "val_nll": 0.4245835840702057,
+      "train_macro_f1": 0.7242755862579543,
+      "val_macro_f1": 0.7373107833528565,
+      "val_balanced_accuracy": 0.756455624164245,
+      "val_accuracy": 0.8267547942654999,
+      "lr": 0.001
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.6222120114278682,
+      "train_nll": 0.5829854011535645,
+      "val_nll": 0.40019088983535767,
+      "train_macro_f1": 0.7292400021268249,
+      "val_macro_f1": 0.7459789921848473,
+      "val_balanced_accuracy": 0.7528974699106932,
+      "val_accuracy": 0.8394153788866133,
+      "lr": 0.001
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.6194234827320615,
+      "train_nll": 0.6020452976226807,
+      "val_nll": 0.4101361930370331,
+      "train_macro_f1": 0.7160851306552897,
+      "val_macro_f1": 0.7224921995990936,
+      "val_balanced_accuracy": 0.7428940109357995,
+      "val_accuracy": 0.8341556507168125,
+      "lr": 0.001
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.6168437450776845,
+      "train_nll": 0.5771365761756897,
+      "val_nll": 0.391829252243042,
+      "train_macro_f1": 0.7232400988493572,
+      "val_macro_f1": 0.7364079383479861,
+      "val_balanced_accuracy": 0.7451623668601187,
+      "val_accuracy": 0.8421616086389871,
+      "lr": 0.001
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.6127436163125338,
+      "train_nll": 0.5831676721572876,
+      "val_nll": 0.4108988046646118,
+      "train_macro_f1": 0.7313783070980181,
+      "val_macro_f1": 0.7371154090270493,
+      "val_balanced_accuracy": 0.7532532990701588,
+      "val_accuracy": 0.8319679761683113,
+      "lr": 0.001
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.6028337064600768,
+      "train_nll": 0.5738809108734131,
+      "val_nll": 0.40189769864082336,
+      "train_macro_f1": 0.7340717066729867,
+      "val_macro_f1": 0.7378795387760747,
+      "val_balanced_accuracy": 0.7496245113987137,
+      "val_accuracy": 0.8362967789983243,
+      "lr": 0.0005
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.5999811182627867,
+      "train_nll": 0.5605708956718445,
+      "val_nll": 0.3966805636882782,
+      "train_macro_f1": 0.7351555948860471,
+      "val_macro_f1": 0.7369657513688119,
+      "val_balanced_accuracy": 0.7475100296028679,
+      "val_accuracy": 0.8392757400856451,
+      "lr": 0.0005
+    },
+    {
+      "epoch": 10,
+      "train_loss": 0.5989253761329295,
+      "train_nll": 0.594648540019989,
+      "val_nll": 0.41914400458335876,
+      "train_macro_f1": 0.7311868373366144,
+      "val_macro_f1": 0.7414488981415062,
+      "val_balanced_accuracy": 0.7631846346195871,
+      "val_accuracy": 0.8307112269595979,
+      "lr": 0.0005
+    }
+  ],
+  "val_metrics": {
+    "n": 21484,
+    "accuracy": 0.8394153788866133,
+    "balanced_accuracy": 0.7528974699106932,
+    "macro_precision": 0.7415594960706388,
+    "macro_recall": 0.7528974699106932,
+    "macro_f1": 0.7459789921848473,
+    "weighted_f1": 0.8429651555216227,
+    "roc_auc_macro_ovr": 0.9539002832983159,
+    "pr_auc_macro": 0.7864659067909126,
+    "log_loss": 0.40019089433395155,
+    "brier": 0.22893244442514224,
+    "quadratic_kappa": 0.889479460862938,
+    "mean_abs_ordinal_error": 0.1668218208899646,
+    "per_class": {
+      "0": {
+        "precision": 0.9436609318467105,
+        "recall": 0.9124009423859499,
+        "f1": 0.9277676950998185,
+        "support": 14007,
+        "roc_auc": 0.9661712161554256,
+        "pr_auc": 0.9807538902288064
+      },
+      "1": {
+        "precision": 0.662822976724322,
+        "recall": 0.7101349805536491,
+        "f1": 0.6856637950077313,
+        "support": 4371,
+        "roc_auc": 0.9128521315171473,
+        "pr_auc": 0.7266200431064377
+      },
+      "2": {
+        "precision": 0.5313852813852814,
+        "recall": 0.6145181476846058,
+        "f1": 0.5699361578641904,
+        "support": 1598,
+        "roc_auc": 0.9466019829926703,
+        "pr_auc": 0.5603049606361613
+      },
+      "3": {
+        "precision": 0.8283687943262411,
+        "recall": 0.7745358090185677,
+        "f1": 0.800548320767649,
+        "support": 1508,
+        "roc_auc": 0.9899758025280203,
+        "pr_auc": 0.8781847331922448
+      }
+    },
+    "confusion_matrix": [
+      [
+        12780,
+        1174,
+        51,
+        2
+      ],
+      [
+        738,
+        3104,
+        496,
+        33
+      ],
+      [
+        24,
+        385,
+        982,
+        207
+      ],
+      [
+        1,
+        20,
+        319,
+        1168
+      ]
+    ]
+  },
+  "checkpoint": "models/checkpoints/multimodal-transformer-86a36b10bc.pt",
+  "device": "cuda",
+  "finished_at": "2026-10-25 15:05:55"
+}

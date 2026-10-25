@@ -1,0 +1,93 @@
+{
+  "downloaded_at_utc": "2026-10-25T09:23:13.372500+00:00",
+  "kagglehub_version": "1.0.3",
+  "datasets": {
+    "weather": {
+      "handle": "nelgiriyewithana/global-weather-repository",
+      "url": "https://www.kaggle.com/datasets/nelgiriyewithana/global-weather-repository",
+      "skipped_empty_versions": [
+        1106
+      ],
+      "status": "ok",
+      "cache_path": "C:\\Users\\debsh\\.cache\\kagglehub\\datasets\\nelgiriyewithana\\global-weather-repository\\versions\\1105",
+      "version": "1105",
+      "files": [
+        {
+          "file": "GlobalWeatherRepository.csv",
+          "bytes": 45016177
+        },
+        {
+          "file": "state.db",
+          "bytes": 2
+        }
+      ]
+    },
+    "drought_us": {
+      "handle": "cdminix/us-drought-meteorological-data",
+      "url": "https://www.kaggle.com/datasets/cdminix/us-drought-meteorological-data",
+      "status": "ok",
+      "cache_path": "C:\\Users\\debsh\\.cache\\kagglehub\\datasets\\cdminix\\us-drought-meteorological-data\\versions\\5",
+      "version": "5",
+      "files": [
+        {
+          "file": "soil_data.csv",
+          "bytes": 731402
+        },
+        {
+          "file": "test_timeseries/test_timeseries.csv",
+          "bytes": 258416489
+        },
+        {
+          "file": "train_timeseries/train_timeseries.csv",
+          "bytes": 2196408881
+        },
+        {
+          "file": "validation_timeseries/validation_timeseries.csv",
+          "bytes": 258346590
+        }
+      ]
+    },
+    "world_cities": {
+      "handle": "juanmah/world-cities",
+      "url": "https://www.kaggle.com/datasets/juanmah/world-cities",
+      "status": "ok",
+      "cache_path": "C:\\Users\\debsh\\.cache\\kagglehub\\datasets\\juanmah\\world-cities\\versions\\12",
+      "version": "12",
+      "files": [
+        {
+          "file": "worldcities.csv",
+          "bytes": 5331582
+        }
+      ]
+    },
+    "historical_temperature": {
+      "handle": "berkeleyearth/climate-change-earth-surface-temperature-data",
+      "url": "https://www.kaggle.com/datasets/berkeleyearth/climate-change-earth-surface-temperature-data",
+      "status": "ok",
+      "cache_path": "C:\\Users\\debsh\\.cache\\kagglehub\\datasets\\berkeleyearth\\climate-change-earth-surface-temperature-data\\versions\\2",
+      "version": "2",
+      "files": [
+        {
+          "file": "GlobalLandTemperaturesByCity.csv",
+          "bytes": 532830464
+        },
+        {
+          "file": "GlobalLandTemperaturesByCountry.csv",
+          "bytes": 22680393
+        },
+        {
+          "file": "GlobalLandTemperaturesByMajorCity.csv",
+          "bytes": 14138385
+        },
+        {
+          "file": "GlobalLandTemperaturesByState.csv",
+          "bytes": 30770160
+        },
+        {
+          "file": "GlobalTemperatures.csv",
+          "bytes": 205875
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,226 @@
+{
+  "run_id": "multimodal-lstm-89fc2b25b7",
+  "group": "multimodal",
+  "config": {
+    "model": "lstm",
+    "lookback": 14,
+    "horizon": 1,
+    "hidden": 64,
+    "d_model": 64,
+    "layers": 1,
+    "dropout": 0.2,
+    "heads": 2,
+    "lr": 0.001,
+    "batch_size": 256,
+    "optimizer": "adamw",
+    "weight_decay": 0.0001,
+    "loss": "wce",
+    "focal_gamma": 2.0,
+    "epochs": 40,
+    "patience": 6,
+    "seed": 42,
+    "modalities": [
+      "climate",
+      "air",
+      "dryness"
+    ],
+    "use_context": true,
+    "fusion": "attention",
+    "encoder": "gru",
+    "air_encoder": "gru",
+    "dry_encoder": "gru",
+    "token_self_attention": true,
+    "modality_dropout": 0.1,
+    "drop_features": [],
+    "max_missing": 3,
+    "train_sites": null,
+    "grad_clip": 1.0
+  },
+  "status": "complete",
+  "n_params": 31556,
+  "n_train": 109762,
+  "n_val": 21484,
+  "best_epoch": 3,
+  "epochs_run": 9,
+  "train_time_s": 35.09263730049133,
+  "nan_batches": 0,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.7196914171561216,
+      "train_nll": 0.608346700668335,
+      "val_nll": 0.41837403178215027,
+      "train_macro_f1": 0.7211589602508564,
+      "val_macro_f1": 0.7277241180982388,
+      "val_balanced_accuracy": 0.7425697804851447,
+      "val_accuracy": 0.830850865760566,
+      "lr": 0.001
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.6259156951815377,
+      "train_nll": 0.6021259427070618,
+      "val_nll": 0.40890976786613464,
+      "train_macro_f1": 0.7215487687544354,
+      "val_macro_f1": 0.7353262142655136,
+      "val_balanced_accuracy": 0.7500750669539651,
+      "val_accuracy": 0.8353193073915472,
+      "lr": 0.001
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.6131086050074696,
+      "train_nll": 0.5808877348899841,
+      "val_nll": 0.3970126509666443,
+      "train_macro_f1": 0.7314893704071285,
+      "val_macro_f1": 0.7371569907320696,
+      "val_balanced_accuracy": 0.7476274559849242,
+      "val_accuracy": 0.8367622416682182,
+      "lr": 0.001
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.6055604058267909,
+      "train_nll": 0.5803306102752686,
+      "val_nll": 0.40404197573661804,
+      "train_macro_f1": 0.7278487048369937,
+      "val_macro_f1": 0.7299551037683351,
+      "val_balanced_accuracy": 0.7462889791787102,
+      "val_accuracy": 0.8348538447216534,
+      "lr": 0.001
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.6001022680378183,
+      "train_nll": 0.5714973211288452,
+      "val_nll": 0.40032824873924255,
+      "train_macro_f1": 0.7298628520862084,
+      "val_macro_f1": 0.729781982292009,
+      "val_balanced_accuracy": 0.7443074839121657,
+      "val_accuracy": 0.8366691491342394,
+      "lr": 0.001
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.5934336203517336,
+      "train_nll": 0.5691602826118469,
+      "val_nll": 0.40031057596206665,
+      "train_macro_f1": 0.7334713780260902,
+      "val_macro_f1": 0.7327580231834508,
+      "val_balanced_accuracy": 0.7494474568464624,
+      "val_accuracy": 0.8351331223235896,
+      "lr": 0.001
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.5831247368058958,
+      "train_nll": 0.5589059591293335,
+      "val_nll": 0.39990270137786865,
+      "train_macro_f1": 0.7374631228169117,
+      "val_macro_f1": 0.733436388459327,
+      "val_balanced_accuracy": 0.7502188851249335,
+      "val_accuracy": 0.8340625581828337,
+      "lr": 0.0005
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.580186783155917,
+      "train_nll": 0.551847517490387,
+      "val_nll": 0.3963712453842163,
+      "train_macro_f1": 0.7398035077017044,
+      "val_macro_f1": 0.7350764882969649,
+      "val_balanced_accuracy": 0.747958691552555,
+      "val_accuracy": 0.8367622416682182,
+      "lr": 0.0005
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.5780496794582802,
+      "train_nll": 0.5549498796463013,
+      "val_nll": 0.4049663841724396,
+      "train_macro_f1": 0.7408688472140865,
+      "val_macro_f1": 0.7307544581057644,
+      "val_balanced_accuracy": 0.7471117971149356,
+      "val_accuracy": 0.8322472537702477,
+      "lr": 0.0005
+    }
+  ],
+  "val_metrics": {
+    "n": 21484,
+    "accuracy": 0.8367622416682182,
+    "balanced_accuracy": 0.7476274559849242,
+    "macro_precision": 0.7274899089386752,
+    "macro_recall": 0.7476274559849242,
+    "macro_f1": 0.7371569907320696,
+    "weighted_f1": 0.8389441039696834,
+    "roc_auc_macro_ovr": 0.9535289369837817,
+    "pr_auc_macro": 0.7864741753330223,
+    "log_loss": 0.3970126804251417,
+    "brier": 0.2270553055065189,
+    "quadratic_kappa": 0.8882383055009846,
+    "mean_abs_ordinal_error": 0.1706386147830944,
+    "per_class": {
+      "0": {
+        "precision": 0.9398766700924974,
+        "recall": 0.9140429785107447,
+        "f1": 0.9267798327843932,
+        "support": 14007,
+        "roc_auc": 0.9652940300326919,
+        "pr_auc": 0.9801563335450675
+      },
+      "1": {
+        "precision": 0.6631785480706344,
+        "recall": 0.6959505833905285,
+        "f1": 0.6791694574681849,
+        "support": 4371,
+        "roc_auc": 0.9132067394409022,
+        "pr_auc": 0.7261054108514002
+      },
+      "2": {
+        "precision": 0.533213644524237,
+        "recall": 0.5575719649561952,
+        "f1": 0.5451208320587335,
+        "support": 1598,
+        "roc_auc": 0.9461385151936753,
+        "pr_auc": 0.5643056916811604
+      },
+      "3": {
+        "precision": 0.7736907730673317,
+        "recall": 0.8229442970822282,
+        "f1": 0.7975578406169666,
+        "support": 1508,
+        "roc_auc": 0.9894764632678578,
+        "pr_auc": 0.8753292652544612
+      }
+    },
+    "confusion_matrix": [
+      [
+        12803,
+        1147,
+        55,
+        2
+      ],
+      [
+        795,
+        3042,
+        483,
+        51
+      ],
+      [
+        23,
+        374,
+        891,
+        310
+      ],
+      [
+        1,
+        24,
+        242,
+        1241
+      ]
+    ]
+  },
+  "checkpoint": "models/checkpoints/multimodal-lstm-89fc2b25b7.pt",
+  "device": "cuda",
+  "finished_at": "2026-10-25 15:04:08"
+}

@@ -1,0 +1,96 @@
+{
+  "weather_cleaning": {
+    "raw_rows": 170733,
+    "invalid_values_set_nan": {
+      "temp_c": 1,
+      "feels_like_c": 1,
+      "rh": 0,
+      "wind_kph": 1,
+      "gust_kph": 1,
+      "pressure_hpa": 12,
+      "precip_mm": 0,
+      "cloud": 0,
+      "visibility_km": 0,
+      "uv_index": 0,
+      "co": 1,
+      "o3": 0,
+      "no2": 0,
+      "so2": 1,
+      "pm25": 0,
+      "pm10": 2,
+      "us_epa_index": 0,
+      "gb_defra_index": 0
+    },
+    "exact_duplicate_rows": 1,
+    "same_day_records_averaged": 416
+  },
+  "sites_total": 279,
+  "sites_kept": 185,
+  "site_days_kept": 160497,
+  "world_cities_join": {
+    "matched": 182,
+    "unmatched": 3,
+    "ambiguous_lt2km": 40,
+    "country_name_disagreements": 9,
+    "median_distance_km": 1.317921386268826
+  },
+  "berkeley_join": {
+    "berkeley_cities_with_normals": 3510,
+    "matched": 156,
+    "unmatched": 29,
+    "median_distance_km": 73.03595580714094
+  },
+  "grid_rows": 161908,
+  "grid_unobserved_days": 1412,
+  "label_distribution_all": {
+    "Low": 84024,
+    "Moderate": 41455,
+    "High": 19359,
+    "Critical": 15658
+  },
+  "label_distribution_by_split": {
+    "test": {
+      "Low": 14787,
+      "Moderate": 5105,
+      "High": 2233,
+      "Critical": 1810
+    },
+    "train": {
+      "Low": 53553,
+      "Moderate": 31358,
+      "High": 15316,
+      "Critical": 12205
+    },
+    "val": {
+      "Low": 15684,
+      "Moderate": 4992,
+      "High": 1810,
+      "Critical": 1643
+    }
+  },
+  "hazard_score_distribution": {
+    "heat_score_obs": {
+      "0": 107915,
+      "1": 25309,
+      "2": 24441,
+      "3": 2831
+    },
+    "air_score_obs": {
+      "0": 79382,
+      "1": 50276,
+      "2": 19361,
+      "3": 11477
+    },
+    "dry_score_obs": {
+      "0": 94551,
+      "1": 35645,
+      "2": 14418,
+      "3": 15882
+    }
+  },
+  "label_coverage_mean": 1.0,
+  "date_range": [
+    "2024-05-16",
+    "2026-10-12"
+  ]
+}

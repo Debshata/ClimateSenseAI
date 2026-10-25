@@ -1,0 +1,325 @@
+{
+  "n_site_days": 160496,
+  "base_distribution": {
+    "Low": 0.5235270660951051,
+    "Moderate": 0.2582930415711295,
+    "High": 0.12061982853155219,
+    "Critical": 0.09756006380221315
+  },
+  "variants": {
+    "class_boundaries_-1": {
+      "distribution": {
+        "Low": 0.28073596849765725,
+        "Moderate": 0.41019713886950454,
+        "High": 0.17586731133486191,
+        "Critical": 0.13319958129797627
+      },
+      "agreement_with_base": 0.6306823846077161,
+      "quadratic_kappa_vs_base": 0.8233704762461764
+    },
+    "class_boundaries_+1": {
+      "distribution": {
+        "Low": 0.6017034692453395,
+        "Moderate": 0.21090245239756755,
+        "High": 0.09508648190609112,
+        "Critical": 0.0923075964510019
+      },
+      "agreement_with_base": 0.8857853155218821,
+      "quadratic_kappa_vs_base": 0.9419225270724558
+    },
+    "without_dryness": {
+      "distribution": {
+        "Low": 0.6368258398963214,
+        "Moderate": 0.2551029309141661,
+        "High": 0.08012660751669824,
+        "Critical": 0.027944621672814276
+      },
+      "agreement_with_base": 0.7505420695842887,
+      "quadratic_kappa_vs_base": 0.7702996549138262
+    },
+    "without_air": {
+      "distribution": {
+        "Low": 0.6804530954042468,
+        "Moderate": 0.193450304057422,
+        "High": 0.07342862127405045,
+        "Critical": 0.05266797926428073
+      },
+      "agreement_with_base": 0.745576213737414,
+      "quadratic_kappa_vs_base": 0.791752780505858
+    },
+    "air_from_us_epa_index": {
+      "distribution": {
+        "Low": 0.6398414913767322,
+        "Moderate": 0.21026069185524873,
+        "High": 0.08222011763533048,
+        "Critical": 0.06767769913268866
+      },
+      "agreement_with_base": 0.7914029010068787,
+      "quadratic_kappa_vs_base": 0.8778175486479823
+    },
+    "heat_index_bands_-1C": {
+      "distribution": {
+        "Low": 0.4980622570032898,
+        "Moderate": 0.27469220416708207,
+        "High": 0.12296879673013658,
+        "Critical": 0.10427674209949157
+      },
+      "agreement_with_base": 0.9587528661150434,
+      "quadratic_kappa_vs_base": 0.9794105646928034
+    },
+    "heat_index_bands_+1C": {
+      "distribution": {
+        "Low": 0.536592812281926,
+        "Moderate": 0.25334587777888545,
+        "High": 0.11825216827833715,
+        "Critical": 0.09180914166085136
+      },
+      "agreement_with_base": 0.9730647492772405,
+      "quadratic_kappa_vs_base": 0.986249977607548
+    },
+    "vpd_bands_x1.25": {
+      "distribution": {
+        "Low": 0.5520511414614695,
+        "Moderate": 0.2543303259894328,
+        "High": 0.11078157711095604,
+        "Critical": 0.08283695543814176
+      },
+      "agreement_with_base": 0.9322039178546506,
+      "quadratic_kappa_vs_base": 0.964560007096287
+    }
+  },
+  "air_score_vs_us_epa_index": {
+    "exact_agreement": 0.5146981856245638,
+    "spearman": 0.6307401318234991
+  },
+  "quarterly_class_share": {
+    "2024Q2": {
+      "Low": 0.3734277689583588,
+      "Moderate": 0.35059225790694837,
+      "High": 0.1309073146904384,
+      "Critical": 0.1450726584442545
+    },
+    "2024Q3": {
+      "Low": 0.38662054481438013,
+      "Moderate": 0.27216010871579466,
+      "High": 0.1875347458150596,
+      "Critical": 0.15368460065476558
+    },
+    "2024Q4": {
+      "Low": 0.45346160656318246,
+      "Moderate": 0.30980345865549197,
+      "High": 0.1454878120757835,
+      "Critical": 0.09124712270554211
+    },
+    "2025Q1": {
+      "Low": 0.448620648114685,
+      "Moderate": 0.3065895675219853,
+      "High": 0.1467895434285026,
+      "Critical": 0.09800024093482713
+    },
+    "2025Q2": {
+      "Low": 0.46024382991376744,
+      "Moderate": 0.2758846268212905,
+      "High": 0.1312518584597086,
+      "Critical": 0.13261968480523342
+    },
+    "2025Q3": {
+      "Low": 0.459403845023223,
+      "Moderate": 0.2703274736903992,
+      "High": 0.14163090128755365,
+      "Critical": 0.12863777999882414
+    },
+    "2025Q4": {
+      "Low": 0.6519489681933094,
+      "Moderate": 0.21770827209124582,
+      "High": 0.08383796813451702,
+      "Critical": 0.04650479158092775
+    },
+    "2026Q1": {
+      "Low": 0.6555891238670695,
+      "Moderate": 0.21665947345705655,
+      "High": 0.07491214008261915,
+      "Critical": 0.052839262593254825
+    },
+    "2026Q2": {
+      "Low": 0.6379682997118156,
+      "Moderate": 0.19824687800192123,
+      "High": 0.08195244956772334,
+      "Critical": 0.08183237271853987
+    },
+    "2026Q3": {
+      "Low": 0.6102751633595108,
+      "Moderate": 0.22079012049637312,
+      "High": 0.09423895449913075,
+      "Critical": 0.07469576164498531
+    },
+    "2026Q4": {
+      "Low": 0.6845238095238095,
+      "Moderate": 0.18315018315018314,
+      "High": 0.07097069597069597,
+      "Critical": 0.06135531135531135
+    }
+  },
+  "next_day_label_persistence": 0.7560090418184101,
+  "drivers_high_critical": {
+    "heat_ge2": 0.49370305851443586,
+    "air_ge2": 0.5642116686180998,
+    "dryness_ge2": 0.6977753662506783
+  },
+  "sites_highest_hc_share": [
+    {
+      "site_id": "Saudi Arabia|24.6|46.8",
+      "location": "Riyadh",
+      "country": "Saudi Arabia",
+      "share": 0.9668571428571429
+    },
+    {
+      "site_id": "India|28.6|77.2",
+      "location": "New Delhi",
+      "country": "India",
+      "share": 0.9519450800915332
+    },
+    {
+      "site_id": "Sudan|15.6|32.5",
+      "location": "Khartoum",
+      "country": "Sudan",
+      "share": 0.9462242562929062
+    },
+    {
+      "site_id": "Indonesia|-6.2|106.8",
+      "location": "Jakarta",
+      "country": "Indonesia",
+      "share": 0.9337899543378996
+    },
+    {
+      "site_id": "Kuwait|29.4|48.0",
+      "location": "Kuwait City",
+      "country": "Kuwait",
+      "share": 0.912
+    },
+    {
+      "site_id": "Qatar|25.3|51.5",
+      "location": "Doha",
+      "country": "Qatar",
+      "share": 0.8878718535469108
+    },
+    {
+      "site_id": "Malaysia|3.2|101.7",
+      "location": "Kuala Lumpur",
+      "country": "Malaysia",
+      "share": 0.8604118993135011
+    },
+    {
+      "site_id": "Oman|23.6|58.6",
+      "location": "Muscat",
+      "country": "Oman",
+      "share": 0.8504566210045662
+    },
+    {
+      "site_id": "Bahrain|26.2|50.6",
+      "location": "Manama",
+      "country": "Bahrain",
+      "share": 0.8344748858447488
+    },
+    {
+      "site_id": "Bangladesh|23.7|90.4",
+      "location": "Dhaka",
+      "country": "Bangladesh",
+      "share": 0.8297142857142857
+    }
+  ],
+  "sites_lowest_hc_share": [
+    {
+      "site_id": "Argentina|-34.6|-58.7",
+      "location": "Buenos Aires",
+      "country": "Argentina",
+      "share": 0.0
+    },
+    {
+      "site_id": "Fiji Islands|-18.1|178.4",
+      "location": "Suva",
+      "country": "Fiji Islands",
+      "share": 0.0
+    },
+    {
+      "site_id": "Ecuador|-0.2|-78.5",
+      "location": "Quito",
+      "country": "Ecuador",
+      "share": 0.0
+    },
+    {
+      "site_id": "Denmark|55.7|12.6",
+      "location": "Copenhagen",
+      "country": "Denmark",
+      "share": 0.0
+    },
+    {
+      "site_id": "Norway|59.9|10.8",
+      "location": "Oslo",
+      "country": "Norway",
+      "share": 0.0
+    },
+    {
+      "site_id": "Panama|9.0|-79.5",
+      "location": "Panama City",
+      "country": "Panama",
+      "share": 0.0
+    },
+    {
+      "site_id": "Ireland|53.3|-6.2",
+      "location": "Dublin",
+      "country": "Ireland",
+      "share": 0.0
+    },
+    {
+      "site_id": "Honduras|14.1|-87.2",
+      "location": "Tegucigalpa",
+      "country": "Honduras",
+      "share": 0.0
+    },
+    {
+      "site_id": "New Zealand|-41.3|174.8",
+      "location": "Wellington",
+      "country": "New Zealand",
+      "share": 0.0
+    },
+    {
+      "site_id": "Nicaragua|12.2|-86.3",
+      "location": "Managua",
+      "country": "Nicaragua",
+      "share": 0.0
+    }
+  ],
+  "observation_hour_bias_by_longitude": {
+    "(-180, -90]": {
+      "median_local_hour": 6.5,
+      "share_heat_ge2": 0.04194001874414246,
+      "share_high_critical": 0.04779756326148079,
+      "n": 4268.0
+    },
+    "(-90, -30]": {
+      "median_local_hour": 4.25,
+      "share_heat_ge2": 0.08212924738012067,
+      "share_high_critical": 0.02770720863766275,
+      "n": 25192.0
+    },
+    "(-30, 30]": {
+      "median_local_hour": 9.75,
+      "share_heat_ge2": 0.07592660962807198,
+      "share_high_critical": 0.1504245790326982,
+      "n": 62297.0
+    },
+    "(30, 90]": {
+      "median_local_hour": 12.0,
+      "share_heat_ge2": 0.20908190373272098,
+      "share_high_critical": 0.3687018776171822,
+      "n": 44418.0
+    },
+    "(90, 180]": {
+      "median_local_hour": 17.25,
+      "share_heat_ge2": 0.4525718514863698,
+      "share_high_critical": 0.344023683236709,
+      "n": 24321.0
+    }
+  }
+}

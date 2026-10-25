@@ -1,0 +1,17 @@
+# ClimateSense MAF-Net architecture options (src/climatesense/models/fusion.py)
+mafnet:
+  modalities: [climate, air, dryness]   # branch A, B, C (sequence encoders)
+  use_context: true                     # branch D: static geographic / climatological context MLP
+  encoder: gru                          # climate encoder: gru | lstm | transformer
+  air_encoder: gru
+  dry_encoder: gru
+  hidden: 64                            # climate encoder width; other branches use max(16, hidden/2)
+  d_model: 64                           # common token space
+  layers: 1                             # climate encoder depth
+  heads: 2                              # attention heads (token self-attention + query cross-attention)
+  dropout: 0.2
+  fusion: attention                     # attention | concat (ablation without attention)
+  token_self_attention: true
+  modality_dropout: 0.1                 # probability of masking a whole modality during training
+sequence_baselines: [rnn, lstm, gru, transformer]
+classical_baselines: [persistence, majority, climatology, logreg, random_forest, hist_gradient_boosting, mlp]

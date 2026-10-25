@@ -1,0 +1,18 @@
+# Training defaults for neural models (mirrors DEFAULTS in src/climatesense/training/trainer.py;
+# a run's full effective configuration is stored in experiments/<group>/<run_id>.json)
+lookback: 14
+horizon: 1
+batch_size: 256
+optimizer: adamw          # adam | adamw
+lr: 1.0e-3
+weight_decay: 1.0e-4
+loss: wce                 # ce | wce (class-weighted CE, weights = N / (4 n_c), mean-normalised) | focal (gamma 2, sqrt weights)
+focal_gamma: 2.0
+epochs: 40                # final runs; tuning trials use 20
+patience: 6               # early stopping on validation macro-F1; tuning trials use 5
+scheduler: ReduceLROnPlateau(mode=max, factor=0.5, patience=2) on validation macro-F1
+grad_clip: 1.0
+max_missing: 3            # max unobserved days in a 14-day window
+mixed_precision: false    # Pascal GPU (sm_61) has low FP16 throughput
+selection_metric: validation macro-F1
+seeds: [42, 7, 123, 2024, 31337]

@@ -1,0 +1,37 @@
+{
+  "persistence_L14_h1": {
+    "val_macro_f1": 0.7159791288207287,
+    "val_accuracy": 0.8242412958480729,
+    "val_balanced_accuracy": 0.715272092646801
+  },
+  "majority_L14_h1": {
+    "val_macro_f1": 0.19733171790031276,
+    "val_accuracy": 0.65197356172035,
+    "val_balanced_accuracy": 0.25
+  },
+  "climatology_L14_h1": {
+    "val_macro_f1": 0.5275808176076624,
+    "val_accuracy": 0.622649413517036,
+    "val_balanced_accuracy": 0.595677680064536
+  },
+  "logreg_L14_h1": {
+    "val_macro_f1": 0.7291344267157492,
+    "val_accuracy": 0.8349003909886427,
+    "val_balanced_accuracy": 0.7353547605977169
+  },
+  "random_forest_L14_h1": {
+    "val_macro_f1": 0.7404620746361483,
+    "val_accuracy": 0.8426736175758704,
+    "val_balanced_accuracy": 0.7447581541793205
+  },
+  "hist_gradient_boosting_L14_h1": {
+    "val_macro_f1": 0.7396661275773174,
+    "val_accuracy": 0.8380189908769317,
+    "val_balanced_accuracy": 0.7524287590142114
+  },
+  "mlp_L14_h1": {
+    "val_macro_f1": 0.7180918912691537,
+    "val_accuracy": 0.8360640476633774,
+    "val_balanced_accuracy": 0.7134639149961781
+  }
+}

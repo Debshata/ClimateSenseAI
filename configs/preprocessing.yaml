@@ -1,0 +1,28 @@
+# Feature engineering, labelling and splitting
+task:
+  lookback_days: 14
+  horizon_days: 1            # primary; secondary horizons below
+  secondary_horizons: [3, 7]
+  max_missing_in_window: 3   # windows with more missing (unobserved) days are dropped
+
+split:
+  train_frac: 0.70
+  val_frac: 0.15
+  test_frac: 0.15
+  # A sample belongs to a split if its target date AND its whole input window lie in that split
+  # (this implicitly embargoes lookback + horizon days at every boundary).
+
+labels:
+  heat_index_c: [27.0, 32.0, 41.0]       # NWS caution / extreme caution / danger
+  wet_bulb_c: {level2: 28.0, level3: 31.0}
+  pm25: [15.0, 37.5, 75.0]               # WHO 2021 AQG, IT-3, IT-1 (24 h, ug/m3)
+  pm10: [45.0, 100.0, 150.0]             # WHO 2021 AQG, IT-2, IT-1
+  o3: [100.0, 160.0, 240.0]              # WHO 2021 8 h AQG, IT-1, EU alert threshold
+  no2: [25.0, 50.0, 120.0]               # WHO 2021 24 h AQG, IT-2, IT-1
+  vpd_kpa: [1.0, 2.0, 3.0]               # researcher-defined atmospheric aridity bands
+  dry_spell_days: 30                     # trailing window for the dry-spell modifier
+  dry_spell_min_obs: 20
+  compound:
+    critical_sum: 6
+    high_sum: 4
+    moderate_sum: 2

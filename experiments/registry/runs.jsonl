@@ -1,0 +1,14 @@
+{"run_id": "smoke-gru-12cb7fda46", "group": "smoke", "n_params": 24900, "train_time_s": 4.568126440048218, "finished_at": "2026-10-25 15:00:46", "val_macro_f1": 0.7398896858735632, "model": "gru"}
+{"run_id": "smoke-mafnet-689c334265", "group": "smoke", "n_params": 99108, "train_time_s": 14.337500810623169, "finished_at": "2026-10-25 15:01:01", "val_macro_f1": 0.7317290564574791, "model": "mafnet"}
+{"run_id": "multimodal-rnn-7041f7d12f", "group": "multimodal", "n_params": 11588, "train_time_s": 41.89654517173767, "finished_at": "2026-10-25 15:03:33", "val_macro_f1": 0.7397779692874229, "model": "rnn"}
+{"run_id": "multimodal-lstm-89fc2b25b7", "group": "multimodal", "n_params": 31556, "train_time_s": 35.09263730049133, "finished_at": "2026-10-25 15:04:08", "val_macro_f1": 0.7371569907320696, "model": "lstm"}
+{"run_id": "multimodal-gru-849bc0a4b5", "group": "multimodal", "n_params": 24900, "train_time_s": 52.52023148536682, "finished_at": "2026-10-25 15:05:01", "val_macro_f1": 0.7411720362959637, "model": "gru"}
+{"run_id": "multimodal-transformer-86a36b10bc", "group": "multimodal", "n_params": 49156, "train_time_s": 53.650485038757324, "finished_at": "2026-10-25 15:05:55", "val_macro_f1": 0.7459789921848473, "model": "transformer"}
+{"run_id": "multimodal-mafnet-c1bb080f69", "group": "multimodal", "n_params": 99108, "train_time_s": 126.79624032974243, "finished_at": "2026-10-25 15:08:03", "val_macro_f1": 0.743368664746126, "model": "mafnet"}
+{"run_id": "multimodal-mafnet-cb1a25aacf", "group": "multimodal", "n_params": 53348, "train_time_s": 109.62971115112305, "finished_at": "2026-10-25 15:09:53", "val_macro_f1": 0.7372656540514821, "model": "mafnet"}
+{"run_id": "tuning-gru-155be40f14", "group": "tuning", "n_params": 24900, "train_time_s": 74.13730502128601, "finished_at": "2026-10-25 15:16:45", "val_macro_f1": 0.7423038292925975, "model": "gru"}
+{"run_id": "tuning-mafnet-e20ab18900", "group": "tuning", "n_params": 293092, "train_time_s": 488.52297592163086, "finished_at": "2026-10-25 15:18:55", "val_macro_f1": 0.739556251978464, "model": "mafnet"}
+{"run_id": "tuning-gru-df23e4a212", "group": "tuning", "n_params": 49860, "train_time_s": 190.1977665424347, "finished_at": "2026-10-25 15:19:56", "val_macro_f1": 0.740258405931648, "model": "gru"}
+{"run_id": "tuning-gru-ea8b2e3b14", "group": "tuning", "n_params": 8356, "train_time_s": 86.97186350822449, "finished_at": "2026-10-25 15:21:58", "val_macro_f1": 0.738054124237403, "model": "gru"}
+{"run_id": "tuning-gru-31afceea0c", "group": "tuning", "n_params": 82564, "train_time_s": 24.449751377105713, "finished_at": "2026-10-25 15:22:23", "val_macro_f1": 0.7316769418680429, "model": "gru"}
+{"run_id": "tuning-gru-6e2055c61a", "group": "tuning", "n_params": 14692, "train_time_s": 33.28368353843689, "finished_at": "2026-10-25 15:22:57", "val_macro_f1": 0.7317832930287227, "model": "gru"}

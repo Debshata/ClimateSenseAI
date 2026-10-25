@@ -1,0 +1,23 @@
+# Data acquisition and harmonisation settings
+kaggle:
+  weather: nelgiriyewithana/global-weather-repository
+  drought_us: cdminix/us-drought-meteorological-data
+  world_cities: juanmah/world-cities
+  historical_temperature: berkeleyearth/climate-change-earth-surface-temperature-data
+
+paths:
+  weather_csv: data/raw/weather/GlobalWeatherRepository.csv
+  world_cities_csv: data/raw/world_cities/worldcities.csv
+  berkeley_city_csv: data/raw/historical_temperature/GlobalLandTemperaturesByCity.csv
+  drought_dir: data/raw/drought_us
+
+harmonisation:
+  site_coord_round_deg: 0.1      # sites = (normalised country, lat, lon rounded to 0.1 deg)
+  min_observed_days: 500         # sites with fewer distinct observation days are excluded
+  worldcities_max_km: 50         # max haversine distance for a World Cities match
+  berkeley_max_km: 150           # max distance to a Berkeley Earth city series
+  berkeley_normal_period: [1961, 1990]
+  berkeley_recent_period: [2000, 2012]
+  ffill_max_days: 3              # forward-fill gaps of at most 3 days (past information only)
+
+sentinels: [-9999.0]

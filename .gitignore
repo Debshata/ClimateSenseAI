@@ -1,0 +1,45 @@
+# Secrets
+.env
+*.env
+!.env.example
+kaggle.json
+.kaggle/
+
+# Environments
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+build/
+dist/
+
+# Data (re-downloadable via scripts/download_datasets.py)
+data/raw/
+data/external/
+data/interim/
+data/processed/*.parquet
+data/processed/*.npz
+data/processed/*.csv
+
+# Large model artefacts (best model is small and kept; see below)
+models/checkpoints/
+*.ckpt
+
+# Temporary
+logs/*.log
+*.tmp
+~$*
+.DS_Store
+Thumbs.db
+
+# Per-run prediction arrays (regenerable; the selected model's are copied to models/best/)
+results/predictions/
+# Drought-benchmark subset caches
+experiments/drought_aux/*.parquet
+experiments/drought_aux/*.pt

@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "climatesense"
+version = "1.0.0"
+description = "ClimateSense AI: multimodal attention-based deep learning for early detection of compound climate habitability risk"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Debshata Choudhury" }]
+dependencies = [
+  "torch>=2.4", "numpy", "pandas", "scipy", "scikit-learn", "matplotlib", "optuna",
+  "kagglehub[pandas-datasets]", "pyarrow", "joblib", "pyyaml", "python-docx",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "jupyterlab", "ipykernel", "nbformat", "nbclient"]
+
+[tool.setuptools.packages.find]
+where = ["src"]

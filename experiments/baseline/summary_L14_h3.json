@@ -1,0 +1,27 @@
+{
+  "persistence_L14_h3": {
+    "val_macro_f1": 0.6620526072713613,
+    "val_accuracy": 0.7910963769831874,
+    "val_balanced_accuracy": 0.6599408112432918
+  },
+  "majority_L14_h3": {
+    "val_macro_f1": 0.19720652766225943,
+    "val_accuracy": 0.6512905517404689,
+    "val_balanced_accuracy": 0.25
+  },
+  "climatology_L14_h3": {
+    "val_macro_f1": 0.5308870481918747,
+    "val_accuracy": 0.6261425526876628,
+    "val_balanced_accuracy": 0.59836499124611
+  },
+  "logreg_L14_h3": {
+    "val_macro_f1": 0.6881972129592255,
+    "val_accuracy": 0.8127871181624438,
+    "val_balanced_accuracy": 0.6927729539455716
+  },
+  "hist_gradient_boosting_L14_h3": {
+    "val_macro_f1": 0.692792544409649,
+    "val_accuracy": 0.8151551030073407,
+    "val_balanced_accuracy": 0.6981357946722854
+  }
+}

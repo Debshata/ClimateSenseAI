@@ -1,6 +1,6 @@
 # Final Execution Status
 
-Generated 2026-10-25 18:15 by `scripts/write_docs.py` from saved artefacts and live checks.
+Generated 2026-10-25 18:17 by `scripts/write_docs.py` from saved artefacts and live checks.
 
 ## A. Completion summary
 
@@ -20,7 +20,7 @@ Generated 2026-10-25 18:15 by `scripts/write_docs.py` from saved artefacts and l
 | 11 Documentation | done | `README.md`, `docs/` |
 | 12 IEEE report | done (DOCX + PDF via MS Word, visually inspected) | `reports/final/` |
 | 13 Quality assurance | tests: `................................                                         [100%]` | `tests/` |
-| 14 GitHub | not yet attempted | §G |
+| 14 GitHub | pushed successfully; remote main = 75a67c6 verified with git ls-remote on 2026-10-25 18:16 | §G |
 
 ## B. Datasets
 
@@ -77,7 +77,7 @@ Auxiliary US drought benchmark (test 2019–20): macro-F1 0.348 (majority 0.213)
 ## G. GitHub
 
 * Repository: https://github.com/Debshata/ClimateSenseAI.git, branch `main`
-* Push: not yet attempted
+* Push: pushed successfully; remote main = 75a67c6 verified with git ls-remote on 2026-10-25 18:16
 * Commit history checked for AI co-author trailers before pushing (0 found).
 
 ## H. Quality verification

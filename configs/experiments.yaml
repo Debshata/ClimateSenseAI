@@ -26,7 +26,7 @@ stages:
       transformer_only:
         heads: [1, 2, 4]
   4_seeds: {mafnet: 5, mafnet_concat: 5, gru: 5, transformer: 3, lstm: 3, rnn: 3}
-  5_ablation: 13 variants x 3 seeds (see ABLATIONS in run_experiments.py)
+  5_ablation: 14 named variants = 12 distinct configurations x 3 seeds (see ABLATIONS in run_experiments.py)
   6_horizons: [3, 7] x {mafnet, gru} x 3 seeds; classical baselines for h = 3, 7
   7_lookback: [7, 30] x mafnet x 3 seeds
   8_spatial: 20 % of sites held out (seed 0) x {mafnet, gru} x 3 seeds

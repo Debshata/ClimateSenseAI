@@ -1,0 +1,34 @@
+{
+  "mafnet_h3": {
+    "run_ids": [
+      "horizons-mafnet-7b4a22b43e",
+      "horizons-mafnet-aaef1ba1cd",
+      "horizons-mafnet-c8e0e34a84"
+    ],
+    "val_macro_f1_mean": 0.7095539153036962
+  },
+  "gru_h3": {
+    "run_ids": [
+      "horizons-gru-4443616142",
+      "horizons-gru-7094afeb52",
+      "horizons-gru-99190e63c3"
+    ],
+    "val_macro_f1_mean": 0.7037818316371288
+  },
+  "mafnet_h7": {
+    "run_ids": [
+      "horizons-mafnet-6b8e493e5b",
+      "horizons-mafnet-6d469cb359",
+      "horizons-mafnet-e9890d18ff"
+    ],
+    "val_macro_f1_mean": 0.6903445188202681
+  },
+  "gru_h7": {
+    "run_ids": [
+      "horizons-gru-8d3ac4776e",
+      "horizons-gru-de85009ce8",
+      "horizons-gru-6e6742726c"
+    ],
+    "val_macro_f1_mean": 0.6869110595062528
+  }
+}

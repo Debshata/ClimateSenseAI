@@ -49,11 +49,14 @@ def integrated_gradients(model, X, C, target, steps=32):
     """
     model.eval()
     total = torch.zeros_like(X)
-    for a in torch.linspace(1.0 / steps, 1.0, steps):
-        xi = (a * X).detach().requires_grad_(True)
-        logits, _ = model(xi, C)
-        sel = logits.gather(1, target[:, None]).sum()
-        grad, = torch.autograd.grad(sel, xi)
-        total += grad
+    # cuDNN RNN kernels only support backward in training mode; the native kernels keep eval
+    # semantics (no dropout) and allow input gradients
+    with torch.backends.cudnn.flags(enabled=False):
+        for a in torch.linspace(1.0 / steps, 1.0, steps):
+            xi = (a * X).detach().requires_grad_(True)
+            logits, _ = model(xi, C)
+            sel = logits.gather(1, target[:, None]).sum()
+            grad, = torch.autograd.grad(sel, xi)
+            total += grad
     attr = X * total / steps
     return attr.abs().sum(1).detach()

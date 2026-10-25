@@ -1,0 +1,12 @@
+number,value,state,params,run_id,n_params
+0,0.7423038292925975,COMPLETE,"{'hidden': 64, 'layers': 1, 'dropout': 0.3, 'lr': 0.001, 'batch_size': 128, 'weight_decay': 0.0, 'loss': 'wce'}",tuning-gru-155be40f14,24900.0
+1,0.740258405931648,COMPLETE,"{'hidden': 64, 'layers': 2, 'dropout': 0.2, 'lr': 0.001, 'batch_size': 128, 'weight_decay': 0.001, 'loss': 'ce'}",tuning-gru-df23e4a212,49860.0
+2,,INTERRUPTED,"{'hidden': 32, 'layers': 1, 'dropout': 0.1, 'lr': 0.0003, 'batch_size': 256, 'weight_decay': 0.0001, 'loss': 'wce'}",,
+3,0.7423038292925975,COMPLETE,"{'hidden': 64, 'layers': 1, 'dropout': 0.3, 'lr': 0.001, 'batch_size': 128, 'weight_decay': 0.0, 'loss': 'wce'}",tuning-gru-155be40f14,24900.0
+4,0.740258405931648,COMPLETE,"{'hidden': 64, 'layers': 2, 'dropout': 0.2, 'lr': 0.001, 'batch_size': 128, 'weight_decay': 0.001, 'loss': 'ce'}",tuning-gru-df23e4a212,49860.0
+5,0.738054124237403,COMPLETE,"{'hidden': 32, 'layers': 1, 'dropout': 0.1, 'lr': 0.0003, 'batch_size': 256, 'weight_decay': 0.0001, 'loss': 'wce'}",tuning-gru-ea8b2e3b14,8356.0
+6,0.7316769418680429,COMPLETE,"{'hidden': 128, 'layers': 1, 'dropout': 0.1, 'lr': 0.0003, 'batch_size': 256, 'weight_decay': 0.0, 'loss': 'ce'}",tuning-gru-31afceea0c,82564.0
+7,0.7317832930287227,COMPLETE,"{'hidden': 32, 'layers': 2, 'dropout': 0.1, 'lr': 0.0003, 'batch_size': 256, 'weight_decay': 0.001, 'loss': 'focal'}",tuning-gru-6e2055c61a,14692.0
+8,0.7398330001902608,COMPLETE,"{'hidden': 64, 'layers': 2, 'dropout': 0.2, 'lr': 0.001, 'batch_size': 256, 'weight_decay': 0.001, 'loss': 'wce'}",tuning-gru-4d0d117c42,49860.0
+9,0.7320799413030188,COMPLETE,"{'hidden': 64, 'layers': 2, 'dropout': 0.3, 'lr': 0.003, 'batch_size': 256, 'weight_decay': 0.0, 'loss': 'ce'}",tuning-gru-a81164f7d7,49860.0
+10,0.7432269266989433,COMPLETE,"{'hidden': 64, 'layers': 2, 'dropout': 0.2, 'lr': 0.001, 'batch_size': 128, 'weight_decay': 0.0, 'loss': 'wce'}",tuning-gru-6ed15bf700,49860.0

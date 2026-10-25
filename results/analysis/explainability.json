@@ -1,0 +1,529 @@
+{
+  "selected_run": "final-mafnet-4ac9637255",
+  "subset_size": 8000,
+  "base_macro_f1_subset": 0.7447221420501222,
+  "permutation_importance_features": {
+    "dry_score": {
+      "mean_drop_macro_f1": 0.08555813646997779,
+      "std": 0.0017041619686642973
+    },
+    "heat_score": {
+      "mean_drop_macro_f1": 0.06068509568962477,
+      "std": 0.004457774392118585
+    },
+    "air_score": {
+      "mean_drop_macro_f1": 0.06001645126028593,
+      "std": 0.0024965853910919322
+    },
+    "vpd_kpa": {
+      "mean_drop_macro_f1": 0.03740708868514564,
+      "std": 0.001131413209321197
+    },
+    "heat_index_c": {
+      "mean_drop_macro_f1": 0.027854016979828755,
+      "std": 0.0035362297562698264
+    },
+    "wet_bulb_c": {
+      "mean_drop_macro_f1": 0.012077505297110158,
+      "std": 0.000742983850004042
+    },
+    "log_pm25": {
+      "mean_drop_macro_f1": 0.009764212960694352,
+      "std": 0.00017940369401275857
+    },
+    "rh": {
+      "mean_drop_macro_f1": 0.009030863311088488,
+      "std": 0.0008385894753526468
+    },
+    "log_pm10": {
+      "mean_drop_macro_f1": 0.008660243706898607,
+      "std": 0.0024037118384054312
+    },
+    "days_since_wet": {
+      "mean_drop_macro_f1": 0.0058778106542157205,
+      "std": 0.0002445173914062404
+    },
+    "temp_c": {
+      "mean_drop_macro_f1": 0.005442602336002023,
+      "std": 0.0004914729279473784
+    },
+    "dewpoint_c": {
+      "mean_drop_macro_f1": 0.0034058938733720345,
+      "std": 0.0013369120402834667
+    },
+    "gb_defra_index": {
+      "mean_drop_macro_f1": 0.0027971255979195586,
+      "std": 0.0010245846707190864
+    },
+    "log_co": {
+      "mean_drop_macro_f1": 0.0027333375477972544,
+      "std": 0.0003349770401478436
+    },
+    "wet_frac_30d": {
+      "mean_drop_macro_f1": 0.00198475569280554,
+      "std": 0.0026544788466990044
+    },
+    "cloud": {
+      "mean_drop_macro_f1": 0.0016006421308240038,
+      "std": 0.0005138473564375579
+    },
+    "log_no2": {
+      "mean_drop_macro_f1": 0.0013749017248302353,
+      "std": 0.0007796508852111472
+    },
+    "obs_hour": {
+      "mean_drop_macro_f1": 0.0011327102936758981,
+      "std": 3.4401138700457246e-05
+    },
+    "us_epa_index": {
+      "mean_drop_macro_f1": 0.0010854486321890677,
+      "std": 0.0005273257117698327
+    },
+    "wet_flag": {
+      "mean_drop_macro_f1": 0.000842684573606145,
+      "std": 0.0012289695763422204
+    },
+    "pressure_hpa": {
+      "mean_drop_macro_f1": 0.000777304776176102,
+      "std": 0.0009265129485290791
+    },
+    "wind_kph": {
+      "mean_drop_macro_f1": 0.0006283258453365637,
+      "std": 0.0015406037905277836
+    },
+    "temp_anom_bk": {
+      "mean_drop_macro_f1": 0.0005837023709658884,
+      "std": 0.0005880697091926179
+    },
+    "log_so2": {
+      "mean_drop_macro_f1": 0.00015174980268878313,
+      "std": 0.0007410275736927097
+    },
+    "feels_like_c": {
+      "mean_drop_macro_f1": 6.031935477440742e-05,
+      "std": 0.001751528816597736
+    },
+    "precip_sum_7d": {
+      "mean_drop_macro_f1": -0.00012008583420247687,
+      "std": 0.000739685686109437
+    },
+    "log_precip": {
+      "mean_drop_macro_f1": -0.0003259974621692141,
+      "std": 0.0001628863867085828
+    },
+    "log_o3": {
+      "mean_drop_macro_f1": -0.0006071820646392223,
+      "std": 6.549088587048946e-06
+    },
+    "doy_sin": {
+      "mean_drop_macro_f1": -0.0007906600948486275,
+      "std": 0.0020854036514472707
+    },
+    "wet_frac_7d": {
+      "mean_drop_macro_f1": -0.0008376033100521152,
+      "std": 0.0007444333957802307
+    },
+    "doy_cos": {
+      "mean_drop_macro_f1": -0.0009828489429890563,
+      "std": 0.0008460271484225235
+    },
+    "gust_kph": {
+      "mean_drop_macro_f1": -0.001522583312452308,
+      "std": 0.0007628419068259062
+    },
+    "visibility_km": {
+      "mean_drop_macro_f1": -0.0017168999457230494,
+      "std": 0.0007474639875829081
+    },
+    "precip_sum_30d": {
+      "mean_drop_macro_f1": -0.0025827109867049836,
+      "std": 7.637085247541586e-05
+    },
+    "uv_index": {
+      "mean_drop_macro_f1": -0.003329977850120125,
+      "std": 0.001162969921096435
+    }
+  },
+  "permutation_importance_groups": {
+    "Climate (all)": {
+      "mean_drop_macro_f1": 0.19954385343955253,
+      "std": 0.000581525974069783
+    },
+    "Air quality (all)": {
+      "mean_drop_macro_f1": 0.1479672666689519,
+      "std": 0.002122479824822207
+    },
+    "Dryness proxy (all)": {
+      "mean_drop_macro_f1": 0.2377584498493428,
+      "std": 0.0031998571694589876
+    },
+    "Humidity-derived": {
+      "mean_drop_macro_f1": 0.3960134863485143,
+      "std": 0.002869200465007585
+    },
+    "Static context": {
+      "mean_drop_macro_f1": 0.007305675302323733,
+      "std": 0.0
+    }
+  },
+  "integrated_gradients_high_critical_mean_abs": {
+    "dry_score": 1.0019299983978271,
+    "vpd_kpa": 0.7127199769020081,
+    "air_score": 0.6271100044250488,
+    "heat_score": 0.5987899899482727,
+    "heat_index_c": 0.5099400281906128,
+    "pressure_hpa": 0.40487998723983765,
+    "log_pm10": 0.34147000312805176,
+    "rh": 0.29589998722076416,
+    "temp_c": 0.2448199987411499,
+    "log_pm25": 0.2422100007534027,
+    "gb_defra_index": 0.21344999969005585,
+    "wet_bulb_c": 0.20475000143051147,
+    "days_since_wet": 0.20385000109672546,
+    "cloud": 0.15481999516487122,
+    "wind_kph": 0.13718999922275543,
+    "log_co": 0.13590000569820404,
+    "uv_index": 0.12826000154018402,
+    "wet_frac_30d": 0.1186399981379509,
+    "log_o3": 0.10978999733924866,
+    "dewpoint_c": 0.09549999982118607,
+    "precip_sum_30d": 0.0942699983716011,
+    "wet_flag": 0.091279998421669,
+    "wet_frac_7d": 0.09109000116586685,
+    "log_no2": 0.08619000017642975,
+    "precip_sum_7d": 0.08423999696969986,
+    "feels_like_c": 0.08268000185489655,
+    "us_epa_index": 0.07447999715805054,
+    "log_so2": 0.07011000066995621,
+    "temp_anom_bk": 0.0692799985408783,
+    "doy_cos": 0.06013999879360199,
+    "doy_sin": 0.04608999937772751,
+    "gust_kph": 0.03596000000834465,
+    "visibility_km": 0.0348999984562397,
+    "log_precip": 0.028929999098181725,
+    "obs_hour": 0.02889999933540821
+  },
+  "attention_modalities": [
+    "climate",
+    "air",
+    "dryness",
+    "context"
+  ],
+  "attention_by_class": {
+    "Low": {
+      "by_pred": [
+        0.2786867618560791,
+        0.17326250672340393,
+        0.10534604638814926,
+        0.44270455837249756
+      ],
+      "by_true": [
+        0.2768642008304596,
+        0.1767289936542511,
+        0.11210119724273682,
+        0.43430525064468384
+      ],
+      "n_pred": 12887
+    },
+    "Moderate": {
+      "by_pred": [
+        0.2842021882534027,
+        0.22937484085559845,
+        0.20408713817596436,
+        0.28233659267425537
+      ],
+      "by_true": [
+        0.3098621368408203,
+        0.21266703307628632,
+        0.1868457794189453,
+        0.2906252145767212
+      ],
+      "n_pred": 4527
+    },
+    "High": {
+      "by_pred": [
+        0.36795392632484436,
+        0.15036898851394653,
+        0.2984561622142792,
+        0.1832209825515747
+      ],
+      "by_true": [
+        0.3270186483860016,
+        0.16226942837238312,
+        0.3172665238380432,
+        0.19344566762447357
+      ],
+      "n_pred": 2307
+    },
+    "Critical": {
+      "by_pred": [
+        0.32835325598716736,
+        0.2512250244617462,
+        0.3094443678855896,
+        0.11097712069749832
+      ],
+      "by_true": [
+        0.334073007106781,
+        0.24385610222816467,
+        0.29829245805740356,
+        0.1237778514623642
+      ],
+      "n_pred": 1471
+    }
+  },
+  "note": "Attention weights and attributions describe model behaviour, not causal effects.",
+  "case_studies": [
+    {
+      "target_date": "2026-09-28",
+      "last_input_date": "2026-09-27",
+      "city": "Jakarta",
+      "country": "Indonesia",
+      "actual": "Critical",
+      "predicted": "Critical",
+      "correct": true,
+      "probabilities": {
+        "Low": 0.0,
+        "Moderate": 0.004,
+        "High": 0.234,
+        "Critical": 0.762
+      },
+      "signals_last_input_day": {
+        "temp_c": 33.5,
+        "rh_pct": 46.0,
+        "heat_index_c": 36.1,
+        "pm25": 53.4,
+        "pm10": 54.9,
+        "o3": 241.0,
+        "vpd_kpa": 2.79,
+        "days_since_wet": 38,
+        "hazards_today(H,A,D)": [
+          2,
+          3,
+          3
+        ],
+        "class_today": "Critical"
+      },
+      "hazards_target_day(H,A,D)": [
+        2,
+        3,
+        3
+      ],
+      "attention": {
+        "climate": 0.296,
+        "air": 0.27,
+        "dryness": 0.335,
+        "context": 0.099
+      }
+    },
+    {
+      "target_date": "2026-09-25",
+      "last_input_date": "2026-09-24",
+      "city": "Muscat",
+      "country": "Oman",
+      "actual": "High",
+      "predicted": "High",
+      "correct": true,
+      "probabilities": {
+        "Low": 0.001,
+        "Moderate": 0.065,
+        "High": 0.561,
+        "Critical": 0.373
+      },
+      "signals_last_input_day": {
+        "temp_c": 32.0,
+        "rh_pct": 55.0,
+        "heat_index_c": 35.6,
+        "pm25": 22.8,
+        "pm10": 78.0,
+        "o3": 49.0,
+        "vpd_kpa": 2.14,
+        "days_since_wet": 60,
+        "hazards_today(H,A,D)": [
+          2,
+          1,
+          3
+        ],
+        "class_today": "Critical"
+      },
+      "hazards_target_day(H,A,D)": [
+        2,
+        1,
+        2
+      ],
+      "attention": {
+        "climate": 0.416,
+        "air": 0.113,
+        "dryness": 0.326,
+        "context": 0.145
+      }
+    },
+    {
+      "target_date": "2026-07-05",
+      "last_input_date": "2026-07-04",
+      "city": "Tehran",
+      "country": "Iran",
+      "actual": "High",
+      "predicted": "High",
+      "correct": true,
+      "probabilities": {
+        "Low": 0.002,
+        "Moderate": 0.124,
+        "High": 0.623,
+        "Critical": 0.251
+      },
+      "signals_last_input_day": {
+        "temp_c": 29.1,
+        "rh_pct": 13.0,
+        "heat_index_c": 27.4,
+        "pm25": 22.2,
+        "pm10": 68.5,
+        "o3": 104.0,
+        "vpd_kpa": 3.51,
+        "days_since_wet": 3,
+        "hazards_today(H,A,D)": [
+          1,
+          1,
+          3
+        ],
+        "class_today": "High"
+      },
+      "hazards_target_day(H,A,D)": [
+        1,
+        1,
+        3
+      ],
+      "attention": {
+        "climate": 0.06,
+        "air": 0.17,
+        "dryness": 0.625,
+        "context": 0.145
+      }
+    },
+    {
+      "target_date": "2026-06-30",
+      "last_input_date": "2026-06-29",
+      "city": "Abu Dhabi",
+      "country": "United Arab Emirates",
+      "actual": "Critical",
+      "predicted": "Critical",
+      "correct": true,
+      "probabilities": {
+        "Low": 0.0,
+        "Moderate": 0.003,
+        "High": 0.217,
+        "Critical": 0.78
+      },
+      "signals_last_input_day": {
+        "temp_c": 35.1,
+        "rh_pct": 47.0,
+        "heat_index_c": 39.8,
+        "pm25": 42.6,
+        "pm10": 79.2,
+        "o3": 98.0,
+        "vpd_kpa": 3.0,
+        "days_since_wet": 60,
+        "hazards_today(H,A,D)": [
+          2,
+          2,
+          3
+        ],
+        "class_today": "Critical"
+      },
+      "hazards_target_day(H,A,D)": [
+        3,
+        2,
+        3
+      ],
+      "attention": {
+        "climate": 0.418,
+        "air": 0.191,
+        "dryness": 0.313,
+        "context": 0.078
+      }
+    },
+    {
+      "target_date": "2026-10-02",
+      "last_input_date": "2026-10-01",
+      "city": "Dhaka",
+      "country": "Bangladesh",
+      "actual": "Critical",
+      "predicted": "High",
+      "correct": false,
+      "probabilities": {
+        "Low": 0.002,
+        "Moderate": 0.071,
+        "High": 0.495,
+        "Critical": 0.431
+      },
+      "signals_last_input_day": {
+        "temp_c": 31.6,
+        "rh_pct": 54.0,
+        "heat_index_c": 34.6,
+        "pm25": 43.4,
+        "pm10": 47.5,
+        "o3": 182.0,
+        "vpd_kpa": 2.14,
+        "days_since_wet": 5,
+        "hazards_today(H,A,D)": [
+          2,
+          2,
+          2
+        ],
+        "class_today": "Critical"
+      },
+      "hazards_target_day(H,A,D)": [
+        2,
+        2,
+        2
+      ],
+      "attention": {
+        "climate": 0.556,
+        "air": 0.128,
+        "dryness": 0.147,
+        "context": 0.169
+      }
+    },
+    {
+      "target_date": "2026-08-13",
+      "last_input_date": "2026-08-12",
+      "city": "Baku",
+      "country": "Azerbaijan",
+      "actual": "Moderate",
+      "predicted": "High",
+      "correct": false,
+      "probabilities": {
+        "Low": 0.03,
+        "Moderate": 0.26,
+        "High": 0.554,
+        "Critical": 0.156
+      },
+      "signals_last_input_day": {
+        "temp_c": 30.8,
+        "rh_pct": 43.0,
+        "heat_index_c": 31.1,
+        "pm25": 12.2,
+        "pm10": 14.9,
+        "o3": 104.0,
+        "vpd_kpa": 2.53,
+        "days_since_wet": 48,
+        "hazards_today(H,A,D)": [
+          1,
+          1,
+          3
+        ],
+        "class_today": "High"
+      },
+      "hazards_target_day(H,A,D)": [
+        1,
+        0,
+        2
+      ],
+      "attention": {
+        "climate": 0.153,
+        "air": 0.03,
+        "dryness": 0.736,
+        "context": 0.08
+      }
+    }
+  ]
+}

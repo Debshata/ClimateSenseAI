@@ -1,0 +1,75 @@
+{
+  "missing": [],
+  "empty": [],
+  "notebooks": {
+    "notebooks/01_dataset_acquisition.ipynb": {
+      "cells": 13,
+      "code_cells": 7,
+      "executed": true,
+      "errors": 0
+    },
+    "notebooks/02_exploratory_data_analysis.ipynb": {
+      "cells": 21,
+      "code_cells": 11,
+      "executed": true,
+      "errors": 0
+    },
+    "notebooks/03_data_cleaning_and_integration.ipynb": {
+      "cells": 13,
+      "code_cells": 7,
+      "executed": true,
+      "errors": 0
+    },
+    "notebooks/04_feature_engineering_and_labels.ipynb": {
+      "cells": 10,
+      "code_cells": 6,
+      "executed": true,
+      "errors": 0
+    },
+    "notebooks/05_baseline_models.ipynb": {
+      "cells": 6,
+      "code_cells": 3,
+      "executed": true,
+      "errors": 0
+    },
+    "notebooks/06_lstm_gru_experiments.ipynb": {
+      "cells": 10,
+      "code_cells": 6,
+      "executed": true,
+      "errors": 0
+    },
+    "notebooks/07_attention_fusion_model.ipynb": {
+      "cells": 9,
+      "code_cells": 5,
+      "executed": true,
+      "errors": 0
+    },
+    "notebooks/08_hyperparameter_optimization.ipynb": {
+      "cells": 6,
+      "code_cells": 4,
+      "executed": true,
+      "errors": 0
+    },
+    "notebooks/09_model_evaluation.ipynb": {
+      "cells": 15,
+      "code_cells": 9,
+      "executed": true,
+      "errors": 0
+    },
+    "notebooks/10_ablation_and_explainability.ipynb": {
+      "cells": 20,
+      "code_cells": 13,
+      "executed": true,
+      "errors": 0
+    },
+    "notebooks/11_final_results_and_inference.ipynb": {
+      "cells": 8,
+      "code_cells": 4,
+      "executed": true,
+      "errors": 0
+    }
+  },
+  "secrets_in_tracked_files": [],
+  "large_tracked_files": [],
+  "ok": true
+}

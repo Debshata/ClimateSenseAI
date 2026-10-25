@@ -1,0 +1,179 @@
+{
+  "climate_only": {
+    "delta": {
+      "modalities": [
+        "climate"
+      ],
+      "use_context": false
+    },
+    "run_ids": [
+      "ablation-mafnet-78b28b060f",
+      "ablation-mafnet-a6c886adff",
+      "ablation-mafnet-1d38db4cb4"
+    ],
+    "val_macro_f1_mean": 0.6380514753120005,
+    "val_macro_f1_std": 0.008941951527790343
+  },
+  "air_only": {
+    "delta": {
+      "modalities": [
+        "air"
+      ],
+      "use_context": false
+    },
+    "run_ids": [
+      "ablation-mafnet-b25bb9f228",
+      "ablation-mafnet-5e54b96922",
+      "ablation-mafnet-34c896d631"
+    ],
+    "val_macro_f1_mean": 0.5041099675250239,
+    "val_macro_f1_std": 0.01367251701950462
+  },
+  "dryness_only": {
+    "delta": {
+      "modalities": [
+        "dryness"
+      ],
+      "use_context": false
+    },
+    "run_ids": [
+      "ablation-mafnet-46ddef1c75",
+      "ablation-mafnet-9c5aa4788b",
+      "ablation-mafnet-1e2f0771f5"
+    ],
+    "val_macro_f1_mean": 0.6132052589287761,
+    "val_macro_f1_std": 0.0028698764362453276
+  },
+  "climate_air": {
+    "delta": {
+      "modalities": [
+        "climate",
+        "air"
+      ]
+    },
+    "run_ids": [
+      "ablation-mafnet-ce7a1a2746",
+      "ablation-mafnet-ffc82134bf",
+      "ablation-mafnet-b62f34bd3f"
+    ],
+    "val_macro_f1_mean": 0.730412129539946,
+    "val_macro_f1_std": 0.0019087757837230167
+  },
+  "climate_dryness": {
+    "delta": {
+      "modalities": [
+        "climate",
+        "dryness"
+      ]
+    },
+    "run_ids": [
+      "ablation-mafnet-8050ff91a6",
+      "ablation-mafnet-daa844803a",
+      "ablation-mafnet-462d845e4a"
+    ],
+    "val_macro_f1_mean": 0.6889531963412305,
+    "val_macro_f1_std": 0.016418891755989103
+  },
+  "all_concat_no_attention": {
+    "delta": {
+      "fusion": "concat"
+    },
+    "run_ids": [
+      "ablation-mafnet-614884681b",
+      "ablation-mafnet-77cd9a490c",
+      "ablation-mafnet-c1e306aa01"
+    ],
+    "val_macro_f1_mean": 0.7396784976519623,
+    "val_macro_f1_std": 0.0023800918911433384
+  },
+  "all_attention_no_context": {
+    "delta": {
+      "use_context": false
+    },
+    "run_ids": [
+      "ablation-mafnet-5a747e456e",
+      "ablation-mafnet-f0919d8968",
+      "ablation-mafnet-c99625a75b"
+    ],
+    "val_macro_f1_mean": 0.7390600334709004,
+    "val_macro_f1_std": 0.000990455018732053
+  },
+  "all_attention": {
+    "delta": {},
+    "run_ids": [
+      "ablation-mafnet-4ac9637255",
+      "ablation-mafnet-45228b540b",
+      "ablation-mafnet-9f17d74c11"
+    ],
+    "val_macro_f1_mean": 0.7428632188662343,
+    "val_macro_f1_std": 0.0024551714519211363
+  },
+  "no_humidity": {
+    "delta": {
+      "drop_features": [
+        "humidity"
+      ]
+    },
+    "run_ids": [
+      "ablation-mafnet-8f1dc6c986",
+      "ablation-mafnet-6f6d3a1082",
+      "ablation-mafnet-559a781f49"
+    ],
+    "val_macro_f1_mean": 0.7313586007269302,
+    "val_macro_f1_std": 0.0010047055667356244
+  },
+  "no_air_quality": {
+    "delta": {
+      "modalities": [
+        "climate",
+        "dryness"
+      ]
+    },
+    "run_ids": [
+      "ablation-mafnet-8050ff91a6",
+      "ablation-mafnet-daa844803a",
+      "ablation-mafnet-462d845e4a"
+    ],
+    "val_macro_f1_mean": 0.6889531963412305,
+    "val_macro_f1_std": 0.016418891755989103
+  },
+  "no_dryness": {
+    "delta": {
+      "modalities": [
+        "climate",
+        "air"
+      ]
+    },
+    "run_ids": [
+      "ablation-mafnet-ce7a1a2746",
+      "ablation-mafnet-ffc82134bf",
+      "ablation-mafnet-b62f34bd3f"
+    ],
+    "val_macro_f1_mean": 0.730412129539946,
+    "val_macro_f1_std": 0.0019087757837230167
+  },
+  "with_modality_dropout": {
+    "delta": {
+      "modality_dropout": 0.1
+    },
+    "run_ids": [
+      "ablation-mafnet-caef46b156",
+      "ablation-mafnet-71667b2326",
+      "ablation-mafnet-6aee7ee938"
+    ],
+    "val_macro_f1_mean": 0.7379511923841008,
+    "val_macro_f1_std": 0.0024751968983125964
+  },
+  "with_transferred_drought_features": {
+    "delta": {
+      "transfer_drought": true
+    },
+    "run_ids": [
+      "ablation-mafnet-3fbdd78d3a",
+      "ablation-mafnet-efd305a35b",
+      "ablation-mafnet-83d65abce6"
+    ],
+    "val_macro_f1_mean": 0.7411058167241146,
+    "val_macro_f1_std": 0.0026063094002030515
+  }
+}

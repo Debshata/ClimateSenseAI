@@ -1,0 +1,193 @@
+{
+  "run_id": "tuning-transformer-ad13f9a893",
+  "group": "tuning",
+  "config": {
+    "model": "transformer",
+    "lookback": 14,
+    "horizon": 1,
+    "hidden": 128,
+    "d_model": 64,
+    "layers": 2,
+    "dropout": 0.3,
+    "heads": 4,
+    "lr": 0.003,
+    "batch_size": 128,
+    "optimizer": "adamw",
+    "weight_decay": 0.0001,
+    "loss": "focal",
+    "focal_gamma": 2.0,
+    "epochs": 20,
+    "patience": 5,
+    "seed": 42,
+    "modalities": [
+      "climate",
+      "air",
+      "dryness"
+    ],
+    "use_context": true,
+    "fusion": "attention",
+    "encoder": "gru",
+    "air_encoder": "gru",
+    "dry_encoder": "gru",
+    "token_self_attention": true,
+    "modality_dropout": 0.1,
+    "drop_features": [],
+    "max_missing": 3,
+    "train_sites": null,
+    "grad_clip": 1.0
+  },
+  "status": "complete",
+  "n_params": 320900,
+  "n_train": 109762,
+  "n_val": 21484,
+  "best_epoch": 5,
+  "epochs_run": 6,
+  "train_time_s": 110.96184659004211,
+  "nan_batches": 0,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.23831215961065605,
+      "train_nll": 0.7084929943084717,
+      "val_nll": 0.5493738651275635,
+      "train_macro_f1": 0.6835062000095675,
+      "val_macro_f1": 0.6634359115869188,
+      "val_balanced_accuracy": 0.6735528263321346,
+      "val_accuracy": 0.8076242785328617,
+      "lr": 0.003
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.22408600556197422,
+      "train_nll": 0.6518713235855103,
+      "val_nll": 0.4898323118686676,
+      "train_macro_f1": 0.7055114747625361,
+      "val_macro_f1": 0.7207850482199898,
+      "val_balanced_accuracy": 0.7225745266212686,
+      "val_accuracy": 0.8310835970955129,
+      "lr": 0.003
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.21727419498708697,
+      "train_nll": 0.6804120540618896,
+      "val_nll": 0.5241622924804688,
+      "train_macro_f1": 0.7060370434453582,
+      "val_macro_f1": 0.724525725500027,
+      "val_balanced_accuracy": 0.7269860714040066,
+      "val_accuracy": 0.8298733941537889,
+      "lr": 0.003
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.21655071459033273,
+      "train_nll": 0.6775408983230591,
+      "val_nll": 0.534282386302948,
+      "train_macro_f1": 0.7043332936032277,
+      "val_macro_f1": 0.7137352135377857,
+      "val_balanced_accuracy": 0.7214542725542701,
+      "val_accuracy": 0.8126512753677155,
+      "lr": 0.003
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.2157488988586517,
+      "train_nll": 0.6609049439430237,
+      "val_nll": 0.4869188666343689,
+      "train_macro_f1": 0.7170618601057739,
+      "val_macro_f1": 0.7258288144153582,
+      "val_balanced_accuracy": 0.7253399964307976,
+      "val_accuracy": 0.8341091044498231,
+      "lr": 0.003
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.21436257009114418,
+      "train_nll": 0.6204148530960083,
+      "val_nll": 0.4484465420246124,
+      "train_macro_f1": 0.718727914624331,
+      "val_macro_f1": 0.7234303650167145,
+      "val_balanced_accuracy": 0.7260015874522158,
+      "val_accuracy": 0.8353658536585366,
+      "lr": 0.003
+    }
+  ],
+  "val_metrics": {
+    "n": 21484,
+    "accuracy": 0.8341091044498231,
+    "balanced_accuracy": 0.7253399964307976,
+    "macro_precision": 0.7331345384108376,
+    "macro_recall": 0.7253399964307976,
+    "macro_f1": 0.7258288144153582,
+    "weighted_f1": 0.8351574884782783,
+    "roc_auc_macro_ovr": 0.9488090581239701,
+    "pr_auc_macro": 0.7641256140277517,
+    "log_loss": 0.48691885925188544,
+    "brier": 0.2725150467280205,
+    "quadratic_kappa": 0.8859740345717285,
+    "mean_abs_ordinal_error": 0.1717557251908397,
+    "per_class": {
+      "0": {
+        "precision": 0.9270368006807063,
+        "recall": 0.9333904476333262,
+        "f1": 0.9302027748132338,
+        "support": 14007,
+        "roc_auc": 0.9640973567363321,
+        "pr_auc": 0.9797770870366744
+      },
+      "1": {
+        "precision": 0.6843788437884378,
+        "recall": 0.6364676275451842,
+        "f1": 0.6595542911332385,
+        "support": 4371,
+        "roc_auc": 0.9009000864869008,
+        "pr_auc": 0.7013747421926918
+      },
+      "2": {
+        "precision": 0.49064039408866994,
+        "recall": 0.623279098873592,
+        "f1": 0.5490628445424476,
+        "support": 1598,
+        "roc_auc": 0.94138240033271,
+        "pr_auc": 0.5132349715435599
+      },
+      "3": {
+        "precision": 0.8304821150855366,
+        "recall": 0.7082228116710876,
+        "f1": 0.7644953471725126,
+        "support": 1508,
+        "roc_auc": 0.9888563889399373,
+        "pr_auc": 0.8621156553380805
+      }
+    },
+    "confusion_matrix": [
+      [
+        13074,
+        879,
+        53,
+        1
+      ],
+      [
+        1003,
+        2782,
+        563,
+        23
+      ],
+      [
+        25,
+        383,
+        996,
+        194
+      ],
+      [
+        1,
+        21,
+        418,
+        1068
+      ]
+    ]
+  },
+  "checkpoint": "models/checkpoints/tuning-transformer-ad13f9a893.pt",
+  "device": "cuda",
+  "finished_at": "2026-10-25 15:46:08"
+}

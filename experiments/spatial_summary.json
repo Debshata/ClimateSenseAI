@@ -1,0 +1,18 @@
+{
+  "mafnet": {
+    "run_ids": [
+      "spatial-mafnet-7076f57936",
+      "spatial-mafnet-128a974a17",
+      "spatial-mafnet-fadc316889"
+    ],
+    "val_macro_f1_mean": 0.7414630112179071
+  },
+  "gru": {
+    "run_ids": [
+      "spatial-gru-b25df65dea",
+      "spatial-gru-2d19229059",
+      "spatial-gru-0204ba4ee9"
+    ],
+    "val_macro_f1_mean": 0.7430864158502284
+  }
+}

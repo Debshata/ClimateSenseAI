@@ -22,7 +22,7 @@ from climatesense.evaluation.metrics import bootstrap_ci, compute_metrics, paire
 from climatesense.training.trainer import get_arrays, load_trained, predict
 from climatesense.utils import atomic_write_json, read_json
 sys.path.insert(0, str(ROOT / "scripts"))
-from train_baselines import naive_proba  # noqa: E402
+from train_baselines import naive_proba, tabular_split  # noqa: E402
 
 PRED = ROOT / "results/predictions"
 TAB = ROOT / "results/tables"
@@ -75,8 +75,7 @@ def main():
             if not path.exists():
                 continue
             if Fte is None:
-                X, C, _ = arr.windows(te, 14, h)
-                Fte, _ = tabular_features(X, C, arr.feature_names)
+                Fte, _, _ = tabular_split(arr, te, 14, h)
             mdl = joblib.load(path)
             P = (mdl["model"].predict_proba((Fte - mdl["mu"]) / mdl["sd"]) if isinstance(mdl, dict) else mdl.predict_proba(Fte))
             name = f"baseline-{kind}_L14_h{h}"
@@ -165,6 +164,9 @@ def build_tables(out):
     # ablation table
     ab = read_json(ROOT / "experiments/ablation/summary.json")
     arows = []
+    # "no_dryness" and "no_air_quality" are the same configurations as "climate_air" and
+    # "climate_dryness" (identical run-ids); keep one row each
+    ab = {k: v for k, v in ab.items() if k not in ("no_dryness", "no_air_quality")}
     for name, v in ab.items():
         es = [out[r] for r in v["run_ids"] if r in out]
         r = _agg(es)

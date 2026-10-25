@@ -1,0 +1,237 @@
+{
+  "run_id": "ablation-mafnet-c99625a75b",
+  "group": "ablation",
+  "config": {
+    "model": "mafnet",
+    "lookback": 14,
+    "horizon": 1,
+    "hidden": 32,
+    "d_model": 32,
+    "layers": 1,
+    "dropout": 0.3,
+    "heads": 2,
+    "lr": 0.001,
+    "batch_size": 256,
+    "optimizer": "adamw",
+    "weight_decay": 0.0,
+    "loss": "focal",
+    "focal_gamma": 2.0,
+    "epochs": 40,
+    "patience": 6,
+    "seed": 123,
+    "modalities": [
+      "climate",
+      "air",
+      "dryness"
+    ],
+    "use_context": false,
+    "fusion": "attention",
+    "encoder": "transformer",
+    "air_encoder": "gru",
+    "dry_encoder": "gru",
+    "token_self_attention": true,
+    "modality_dropout": 0.0,
+    "drop_features": [],
+    "max_missing": 3,
+    "train_sites": null,
+    "grad_clip": 1.0
+  },
+  "status": "complete",
+  "n_params": 32484,
+  "n_train": 109762,
+  "n_val": 21484,
+  "best_epoch": 4,
+  "epochs_run": 10,
+  "train_time_s": 121.68245053291321,
+  "nan_batches": 0,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.2575503944794893,
+      "train_nll": 0.6728528738021851,
+      "val_nll": 0.5309968590736389,
+      "train_macro_f1": 0.7169382858843574,
+      "val_macro_f1": 0.7351986537137977,
+      "val_balanced_accuracy": 0.7320696846536179,
+      "val_accuracy": 0.8408117668962949,
+      "lr": 0.001
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.21612999121070187,
+      "train_nll": 0.6613997220993042,
+      "val_nll": 0.5054689049720764,
+      "train_macro_f1": 0.718191463943437,
+      "val_macro_f1": 0.7294450637479755,
+      "val_balanced_accuracy": 0.7384106261261384,
+      "val_accuracy": 0.83890336994973,
+      "lr": 0.001
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.20937159723474152,
+      "train_nll": 0.6640790104866028,
+      "val_nll": 0.501620352268219,
+      "train_macro_f1": 0.7160103204410613,
+      "val_macro_f1": 0.7269827442535944,
+      "val_balanced_accuracy": 0.7339818649824263,
+      "val_accuracy": 0.8364829640662819,
+      "lr": 0.001
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.20555640256905056,
+      "train_nll": 0.6346636414527893,
+      "val_nll": 0.47529280185699463,
+      "train_macro_f1": 0.7326390243580978,
+      "val_macro_f1": 0.7390023744021412,
+      "val_balanced_accuracy": 0.7440945451956551,
+      "val_accuracy": 0.8401601191584435,
+      "lr": 0.001
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.2027099680303138,
+      "train_nll": 0.6559517979621887,
+      "val_nll": 0.503678560256958,
+      "train_macro_f1": 0.731300846485002,
+      "val_macro_f1": 0.7385307095738622,
+      "val_balanced_accuracy": 0.7388680889786844,
+      "val_accuracy": 0.8408583131632843,
+      "lr": 0.001
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.20102209523146525,
+      "train_nll": 0.6449707746505737,
+      "val_nll": 0.5005888938903809,
+      "train_macro_f1": 0.7294799825431512,
+      "val_macro_f1": 0.7368862653832936,
+      "val_balanced_accuracy": 0.7432183240738095,
+      "val_accuracy": 0.8396946564885496,
+      "lr": 0.001
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.19954467733284253,
+      "train_nll": 0.6312217116355896,
+      "val_nll": 0.47332990169525146,
+      "train_macro_f1": 0.7250568307216423,
+      "val_macro_f1": 0.7334976478509747,
+      "val_balanced_accuracy": 0.742316551838616,
+      "val_accuracy": 0.8415099609011357,
+      "lr": 0.001
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.1957996176395105,
+      "train_nll": 0.627524197101593,
+      "val_nll": 0.4798542857170105,
+      "train_macro_f1": 0.7299902280463995,
+      "val_macro_f1": 0.7361098592748283,
+      "val_balanced_accuracy": 0.7373424251419203,
+      "val_accuracy": 0.8438838205175945,
+      "lr": 0.0005
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.19545002837420067,
+      "train_nll": 0.623895525932312,
+      "val_nll": 0.4763033986091614,
+      "train_macro_f1": 0.7360438483466634,
+      "val_macro_f1": 0.7373300056708463,
+      "val_balanced_accuracy": 0.7309566446045308,
+      "val_accuracy": 0.8440234593185626,
+      "lr": 0.0005
+    },
+    {
+      "epoch": 10,
+      "train_loss": 0.19443720686824728,
+      "train_nll": 0.6327802538871765,
+      "val_nll": 0.4830192029476166,
+      "train_macro_f1": 0.7303888960903718,
+      "val_macro_f1": 0.7388976739100418,
+      "val_balanced_accuracy": 0.745850579440692,
+      "val_accuracy": 0.8418357847700615,
+      "lr": 0.0005
+    }
+  ],
+  "val_metrics": {
+    "n": 21484,
+    "accuracy": 0.8401601191584435,
+    "balanced_accuracy": 0.7440945451956551,
+    "macro_precision": 0.7343890110553608,
+    "macro_recall": 0.7440945451956551,
+    "macro_f1": 0.7390023744021412,
+    "weighted_f1": 0.8405731830698593,
+    "roc_auc_macro_ovr": 0.9516725676579845,
+    "pr_auc_macro": 0.7719495086672327,
+    "log_loss": 0.4752927951037411,
+    "brier": 0.26251220183762036,
+    "quadratic_kappa": 0.890986395707241,
+    "mean_abs_ordinal_error": 0.1665890895550177,
+    "per_class": {
+      "0": {
+        "precision": 0.9313627254509018,
+        "recall": 0.9290354822588706,
+        "f1": 0.9301976482361771,
+        "support": 14007,
+        "roc_auc": 0.9654777399316925,
+        "pr_auc": 0.9804367873401907
+      },
+      "1": {
+        "precision": 0.6820428336079077,
+        "recall": 0.6630061770761839,
+        "f1": 0.6723897911832947,
+        "support": 4371,
+        "roc_auc": 0.9065884922302363,
+        "pr_auc": 0.7091774283526014
+      },
+      "2": {
+        "precision": 0.5326721120186698,
+        "recall": 0.5713391739674594,
+        "f1": 0.5513285024154589,
+        "support": 1598,
+        "roc_auc": 0.9448784857165192,
+        "pr_auc": 0.5224175528446113
+      },
+      "3": {
+        "precision": 0.7914783731439639,
+        "recall": 0.8129973474801061,
+        "f1": 0.8020935557736343,
+        "support": 1508,
+        "roc_auc": 0.98974555275349,
+        "pr_auc": 0.875766266131527
+      }
+    },
+    "confusion_matrix": [
+      [
+        13013,
+        947,
+        47,
+        0
+      ],
+      [
+        931,
+        2898,
+        497,
+        45
+      ],
+      [
+        27,
+        380,
+        913,
+        278
+      ],
+      [
+        1,
+        24,
+        257,
+        1226
+      ]
+    ]
+  },
+  "checkpoint": "models/checkpoints/ablation-mafnet-c99625a75b.pt",
+  "device": "cuda",
+  "finished_at": "2026-10-25 17:12:51"
+}

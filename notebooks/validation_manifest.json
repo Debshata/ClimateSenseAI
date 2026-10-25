@@ -1,0 +1,90 @@
+{
+  "01_dataset_acquisition": {
+    "status": "ok (13s)",
+    "executed_at": "2026-10-25 18:07:20",
+    "kernel": "climatesense",
+    "code_cells": 7,
+    "error_outputs": 0,
+    "all_cells_executed": true
+  },
+  "02_exploratory_data_analysis": {
+    "status": "ok (7s)",
+    "executed_at": "2026-10-25 18:07:20",
+    "kernel": "climatesense",
+    "code_cells": 11,
+    "error_outputs": 0,
+    "all_cells_executed": true
+  },
+  "03_data_cleaning_and_integration": {
+    "status": "ok (11s)",
+    "executed_at": "2026-10-25 18:07:20",
+    "kernel": "climatesense",
+    "code_cells": 7,
+    "error_outputs": 0,
+    "all_cells_executed": true
+  },
+  "04_feature_engineering_and_labels": {
+    "status": "ok (6s)",
+    "executed_at": "2026-10-25 18:07:20",
+    "kernel": "climatesense",
+    "code_cells": 6,
+    "error_outputs": 0,
+    "all_cells_executed": true
+  },
+  "05_baseline_models": {
+    "status": "ok (6s)",
+    "executed_at": "2026-10-25 18:07:20",
+    "kernel": "climatesense",
+    "code_cells": 3,
+    "error_outputs": 0,
+    "all_cells_executed": true
+  },
+  "06_lstm_gru_experiments": {
+    "status": "ok (10s)",
+    "executed_at": "2026-10-25 18:07:20",
+    "kernel": "climatesense",
+    "code_cells": 6,
+    "error_outputs": 0,
+    "all_cells_executed": true
+  },
+  "07_attention_fusion_model": {
+    "status": "ok (11s)",
+    "executed_at": "2026-10-25 18:07:20",
+    "kernel": "climatesense",
+    "code_cells": 5,
+    "error_outputs": 0,
+    "all_cells_executed": true
+  },
+  "08_hyperparameter_optimization": {
+    "status": "ok (6s)",
+    "executed_at": "2026-10-25 18:07:20",
+    "kernel": "climatesense",
+    "code_cells": 4,
+    "error_outputs": 0,
+    "all_cells_executed": true
+  },
+  "09_model_evaluation": {
+    "status": "ok (7s)",
+    "executed_at": "2026-10-25 18:07:20",
+    "kernel": "climatesense",
+    "code_cells": 9,
+    "error_outputs": 0,
+    "all_cells_executed": true
+  },
+  "10_ablation_and_explainability": {
+    "status": "ok (6s)",
+    "executed_at": "2026-10-25 18:07:20",
+    "kernel": "climatesense",
+    "code_cells": 13,
+    "error_outputs": 0,
+    "all_cells_executed": true
+  },
+  "11_final_results_and_inference": {
+    "status": "ok (11s)",
+    "executed_at": "2026-10-25 18:08:19",
+    "kernel": "climatesense",
+    "code_cells": 4,
+    "error_outputs": 0,
+    "all_cells_executed": true
+  }
+}

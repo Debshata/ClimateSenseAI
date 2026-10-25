@@ -7,6 +7,7 @@ retraining; every number shown is computed when the notebook executes.
 """
 from __future__ import annotations
 
+import json
 import sys
 import time
 from pathlib import Path
@@ -315,9 +316,27 @@ for f in sorted((ROOT / "experiments/multimodal").glob("multimodal-*.json")):
                      best_epoch=r["best_epoch"], val_macro_f1=r["val_metrics"]["macro_f1"], val_bal_acc=r["val_metrics"]["balanced_accuracy"],
                      val_acc=r["val_metrics"]["accuracy"], train_time_s=round(r["train_time_s"], 1)))
 pd.DataFrame(rows).round(4)'''),
-        md("### Five-seed results for the tuned/selected sequence baselines (validation)"),
+        md("""### Multi-seed robustness (validation)
+Every selected configuration was retrained with independent seeds. The table lists each run's
+validation macro-F1, the recall of the minority High and Critical classes, best epoch and measured
+training time; the summary gives mean, standard deviation and range per model."""),
         code('''fs = read_json(ROOT / "experiments/final_val_summary.json")
-pd.DataFrame(fs).T[["val_macro_f1_mean", "val_macro_f1_std"]].astype(float).round(4)'''),
+rows = []
+for name, v in fs.items():
+    for rid in v["run_ids"]:
+        r = read_json(ROOT / "experiments/final" / f"{rid}.json"); m = r["val_metrics"]
+        rows.append(dict(model=name, seed=r["config"]["seed"], val_macro_f1=m["macro_f1"], val_bal_acc=m["balanced_accuracy"],
+                         recall_high=m["per_class"]["2"]["recall"], recall_critical=m["per_class"]["3"]["recall"],
+                         best_epoch=r["best_epoch"], train_time_s=r["train_time_s"], params=r["n_params"]))
+seeds = pd.DataFrame(rows)
+display(seeds.round(4))
+seeds.groupby("model").agg(runs=("seed", "size"), f1_mean=("val_macro_f1", "mean"), f1_std=("val_macro_f1", "std"),
+                           f1_min=("val_macro_f1", "min"), f1_max=("val_macro_f1", "max"), recall_high_mean=("recall_high", "mean"),
+                           recall_high_std=("recall_high", "std"), recall_crit_mean=("recall_critical", "mean"),
+                           recall_crit_std=("recall_critical", "std"), time_mean_s=("train_time_s", "mean"),
+                           time_std_s=("train_time_s", "std")).round(4)'''),
+        md("Check for failed or diverged seed runs (status and NaN-loss batches recorded per run):"),
+        code('''print("NaN batches per run:", seeds.shape[0], "runs,", sum(read_json(ROOT / "experiments/final" / f"{r}.json")["nan_batches"] for v in fs.values() for r in v["run_ids"]), "NaN batches in total")'''),
         code('''# learning curves of the best-validation GRU seed
 ids = fs["gru"]["run_ids"]; recs = [read_json(ROOT / "experiments/final" / f"{r}.json") for r in ids]
 r = max(recs, key=lambda r: r["val_metrics"]["macro_f1"]); h = pd.DataFrame(r["history"])
@@ -449,7 +468,11 @@ multiple-comparison-corrected significance test."""),
         md("### Forecast horizon and spatial generalisation"),
         code('''display(pd.read_csv(ROOT / "results/tables/horizons.csv")[["horizon","model","n_runs","accuracy","balanced_accuracy","macro_f1","macro_f1_std","roc_auc_macro_ovr"]].round(4))
 show("results/figures/horizons.png", 520)
-display(pd.read_csv(ROOT / "results/tables/spatial_holdout.csv").round(4))'''),
+display(pd.read_csv(ROOT / "results/tables/spatial_holdout.csv").round(4))
+show("results/figures/spatial_holdout.png", 480)'''),
+        md("""The held-out-site experiment retrains on 80 % of sites; sites are disjoint by construction
+(`train_sites` filter on the site code) and the evaluation still uses only the test period, so
+neither site identity nor time overlaps between training and evaluation."""),
     ]
 
 
@@ -464,6 +487,7 @@ ab.sort_values("val_macro_f1", ascending=False).round(4)'''),
         code('show("results/figures/ablation.png", 700)'),
         md("### Look-back length (validation; each length has its own sample set)"),
         code('''pd.read_csv(ROOT / "results/tables/lookback.csv")[["lookback","n_runs","val_macro_f1","val_macro_f1_std","macro_f1","macro_f1_std"]].round(4)'''),
+        code('show("results/figures/lookback.png", 450)'),
         md("### Transferred drought representation (auxiliary US benchmark)"),
         code('''dr = read_json(ROOT / "experiments/drought_aux/drought_aux_results.json")
 print("US drought benchmark (400 counties, 30-day weather → USDM class)")
@@ -488,6 +512,25 @@ cs[[c for c in cs.columns if not c.startswith("signals")]]'''),
         code('show("results/figures/explain/risk_timelines.png")'),
         md("""Predictions are model outputs for a project-defined environmental-stress class; they are not
 observed human-health outcomes."""),
+        md("""## Validity checks on frozen test predictions
+**(a) Observation-hour bias.** Performance by longitude band, where the local snapshot hour differs.
+**(b) Air-quality non-stationarity.** PM2.5 regimes (boundaries at the largest 7-day steps of the
+cross-site median) and monthly macro-F1 across validation and test.
+**(c) Label persistence.** Accuracy on days whose class is unchanged vs. days with a transition, and
+recall of High/Critical *onsets* — the cases an early-warning system exists for and that
+persistence can never predict."""),
+        code('''vc = read_json(ROOT / "results/analysis/validity_checks.json")
+print(vc["obs_hour_correlation"])
+display(pd.DataFrame(vc["by_longitude_band"]).round(3))
+show("results/figures/validity/performance_by_longitude.png", 700)'''),
+        code('''display(pd.DataFrame(vc["pm25_regimes"]["regimes"]).round(3)); print("KS:", vc["pm25_regimes"]["ks_statistic"], "|", vc["pm25_regimes"]["note"])
+show("results/figures/validity/pm25_regimes_and_monthly_performance.png")'''),
+        code('''pa = vc["persistence_analysis"]
+display(pd.DataFrame(pa["subsets"]).round(3))
+print("test label persistence:", round(pa["test_label_persistence"], 3))
+print("recall of High/Critical onsets:", {k: round(v, 3) for k, v in pa["onset_recall_high_or_critical"].items()})
+print("false High/Critical alarms on stable Low/Moderate days:", {k: round(v, 3) for k, v in pa["false_alarm_rate_hc_on_stable_low_moderate"].items()})
+show("results/figures/validity/transitions_vs_stable.png", 600)'''),
     ]
 
 
@@ -501,7 +544,8 @@ stored metrics are reproduced exactly, and demonstrates inference for one city."
 from climatesense.evaluation.metrics import compute_metrics
 from climatesense.labeling.compound_risk import CLASS_NAMES
 st = read_json(ROOT / "results/metrics/selected_model_test.json"); rid = st["selected_run"]
-rec = read_json(ROOT / "experiments" / rid.split("-")[0] / f"{rid}.json")
+rec = read_json(ROOT / "models/best/model_record.json")   # exported copy of the selected checkpoint (tracked in Git)
+assert rec["run_id"] == rid
 model, batcher, arr = load_trained(rec)
 idx = arr.sample_index(rec["config"]["lookback"], rec["config"]["horizon"], "test")
 P, Y, A = predict(model, batcher, idx)
@@ -522,9 +566,10 @@ print(site); out.tail(10)'''),
         code('''mc = pd.read_csv(ROOT / "results/tables/model_comparison_h1.csv").set_index("model")
 ab = pd.read_csv(ROOT / "results/tables/ablation.csv").set_index("variant")
 def g(name, col="macro_f1"): return mc.loc[name, col]
+PERS = "Persistence (today's class)"
 lines = [
  f"* Selected MAF-Net (seed with best validation F1): test macro-F1 {st['test_metrics']['macro_f1']:.3f} (95% CI {st['ci95_macro_f1_site_block_bootstrap'][0]:.3f}–{st['ci95_macro_f1_site_block_bootstrap'][1]:.3f}), accuracy {st['test_metrics']['accuracy']:.3f}, balanced accuracy {st['test_metrics']['balanced_accuracy']:.3f}, macro ROC-AUC {st['test_metrics']['roc_auc_macro_ovr']:.3f}.",
- f"* Five-seed MAF-Net mean test macro-F1 {g('MAF-Net (proposed, attention fusion)'):.3f} ± {g('MAF-Net (proposed, attention fusion)', 'macro_f1_std'):.3f}; concat fusion {g('MAF-Net w/o attention (concat fusion)'):.3f}; tuned GRU {g('GRU (tuned)'):.3f}; gradient boosting {g('Gradient boosting (HistGB)'):.3f}; persistence {g(\\"Persistence (today's class)\\"):.3f}.",
+ f"* Five-seed MAF-Net mean test macro-F1 {g('MAF-Net (proposed, attention fusion)'):.3f} ± {g('MAF-Net (proposed, attention fusion)', 'macro_f1_std'):.3f}; concat fusion {g('MAF-Net w/o attention (concat fusion)'):.3f}; tuned GRU {g('GRU (tuned)'):.3f}; gradient boosting {g('Gradient boosting (HistGB)'):.3f}; persistence {g(PERS):.3f}.",
  f"* Ablation (test macro-F1, 3 seeds): climate-only {ab.loc['climate_only','macro_f1']:.3f}, air-only {ab.loc['air_only','macro_f1']:.3f}, dryness-only {ab.loc['dryness_only','macro_f1']:.3f}, all modalities with attention {ab.loc['all_attention','macro_f1']:.3f}.",
 ]
 display(Markdown("\\n".join(lines)))'''),
@@ -552,18 +597,28 @@ def main():
             continue
         nb = nbf.v4.new_notebook()
         nb.cells = fn()
-        nb.metadata["kernelspec"] = {"name": "python3", "display_name": "Python 3", "language": "python"}
+        nb.metadata["kernelspec"] = {"name": "climatesense", "display_name": "Python 3 (ClimateSense)", "language": "python"}
         path = NB / f"{name}.ipynb"
         if execute:
             t0 = time.time()
             try:
-                NotebookClient(nb, timeout=1200, kernel_name="python3",
+                NotebookClient(nb, timeout=1200, kernel_name="climatesense",
                                resources={"metadata": {"path": str(NB)}}).execute()
                 status[name] = f"ok ({time.time() - t0:.0f}s)"
             except Exception as exc:  # keep the partially executed notebook for debugging
                 status[name] = f"FAILED: {str(exc).splitlines()[0][:200]}"
         nbf.write(nb, path)
         print(name, status.get(name, "built"), flush=True)
+    if execute:
+        man_path = NB / "validation_manifest.json"
+        man = json.loads(man_path.read_text()) if man_path.exists() else {}
+        for name, stt in status.items():
+            nbj = json.loads((NB / f"{name}.ipynb").read_text(encoding="utf-8"))
+            cells = [c for c in nbj["cells"] if c["cell_type"] == "code"]
+            man[name] = {"status": stt, "executed_at": time.strftime("%Y-%m-%d %H:%M:%S"), "kernel": "climatesense",
+                         "code_cells": len(cells), "error_outputs": sum(o.get("output_type") == "error" for c in cells for o in c.get("outputs", [])),
+                         "all_cells_executed": all(c.get("execution_count") for c in cells)}
+        man_path.write_text(json.dumps(man, indent=2))
     return status
 
 

@@ -43,3 +43,6 @@ results/predictions/
 # Drought-benchmark subset caches
 experiments/drought_aux/*.parquet
 experiments/drought_aux/*.pt
+
+# superseded baseline records (trained with an inconsistent feature set; kept locally for audit)
+experiments/_superseded/

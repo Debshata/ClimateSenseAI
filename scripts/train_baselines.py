@@ -21,7 +21,7 @@ from sklearn.ensemble import HistGradientBoostingClassifier, RandomForestClassif
 from sklearn.linear_model import LogisticRegression
 from sklearn.neural_network import MLPClassifier
 
-from climatesense.data.windows import tabular_features
+from climatesense.data.windows import MISSING_FLAGS, SEQ_FEATURES, tabular_features
 from climatesense.evaluation.metrics import compute_metrics
 from climatesense.training.trainer import get_arrays
 from climatesense.utils import atomic_write_json, read_json, set_seed
@@ -67,9 +67,13 @@ def sklearn_models(seed):
     }
 
 
+BASE_COLS = SEQ_FEATURES + MISSING_FLAGS  # classical baselines never use the optional transfer features
+
+
 def tabular_split(arr, idx, L, h):
     X, C, y = arr.windows(idx, L, h)
-    F, cols = tabular_features(X, C, arr.feature_names)
+    X = X[:, :, arr.feature_idx(BASE_COLS)]
+    F, cols = tabular_features(X, C, BASE_COLS)
     return F, y, cols
 
 

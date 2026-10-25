@@ -67,10 +67,12 @@ def _space(trial, model):
     return cfg
 
 
-def tune(model: str, n_trials: int):
+def tune(model: str, n_trials: int, sampler_seed: int = 42):
+    """Resumable Optuna study; several worker processes may share it (each with its own sampler
+    seed).  MaxTrialsCallback caps the total number of finished trials across workers."""
     storage = f"sqlite:///{(ROOT / 'experiments/tuning/optuna.db').as_posix()}"
     study = optuna.create_study(study_name=f"{model}_h1_L14", storage=storage, direction="maximize",
-                                load_if_exists=True, sampler=optuna.samplers.TPESampler(seed=42),
+                                load_if_exists=True, sampler=optuna.samplers.TPESampler(seed=sampler_seed),
                                 pruner=optuna.pruners.MedianPruner(n_startup_trials=5, n_warmup_steps=4))
     done = len([t for t in study.trials if t.state in (optuna.trial.TrialState.COMPLETE, optuna.trial.TrialState.PRUNED)])
 
@@ -82,9 +84,13 @@ def tune(model: str, n_trials: int):
         print(f"[{model}] trial {trial.number}: valF1={r['val_metrics']['macro_f1']:.4f} {trial.params}", flush=True)
         return r["val_metrics"]["macro_f1"]
 
+    states = (optuna.trial.TrialState.COMPLETE, optuna.trial.TrialState.PRUNED)
     if n_trials - done > 0:
-        study.optimize(objective, n_trials=n_trials - done)
-    rows = [dict(number=t.number, value=t.value, state=t.state.name, params=t.params, run_id=t.user_attrs.get("run_id"),
+        study.optimize(objective, n_trials=n_trials - done,
+                       callbacks=[optuna.study.MaxTrialsCallback(n_trials, states=states)])
+    # trials left RUNNING by a killed worker (restart to cap CPU threads) are reported as interrupted
+    rows = [dict(number=t.number, value=t.value, state="INTERRUPTED" if t.state.name == "RUNNING" else t.state.name,
+                 params=t.params, run_id=t.user_attrs.get("run_id"),
                  n_params=t.user_attrs.get("n_params")) for t in study.trials]
     atomic_write_json(rows, ROOT / f"experiments/tuning/{model}_trials.json")
     return study.best_params, study.best_value
@@ -133,21 +139,26 @@ ABLATIONS = {
     "no_humidity": dict(drop_features=["humidity"]),
     "no_air_quality": dict(modalities=["climate", "dryness"]),
     "no_dryness": dict(modalities=["climate", "air"]),
-    "no_modality_dropout": dict(modality_dropout=0.0),
+    "with_modality_dropout": dict(modality_dropout=0.1),  # selected config uses 0.0
     "with_transferred_drought_features": dict(transfer_drought=True),
 }
 
 
-def stage_ablation():
+def stage_ablation(reverse: bool = False):
+    """reverse=True lets a second worker process the same variants from the other end; completed
+    runs are skipped through the run-id cache, so the two workers meet in the middle."""
     base = selected("mafnet")
     summary = {}
-    for name, delta in ABLATIONS.items():
+    items = list(ABLATIONS.items())
+    for name, delta in (items[::-1] if reverse else items):
         recs = [train({**base, **delta, "seed": s}, group="ablation") for s in SEEDS3]
         f1 = [r["val_metrics"]["macro_f1"] for r in recs]
         summary[name] = dict(delta=delta, run_ids=[r["run_id"] for r in recs], val_macro_f1_mean=float(np.mean(f1)),
                              val_macro_f1_std=float(np.std(f1, ddof=1)))
         print(name, summary[name]["val_macro_f1_mean"], flush=True)
-    atomic_write_json(summary, ROOT / "experiments/ablation/summary.json")
+    if not reverse:
+        atomic_write_json(dict(sorted(summary.items(), key=lambda kv: list(ABLATIONS).index(kv[0]))),
+                          ROOT / "experiments/ablation/summary.json")
 
 
 def stage_horizons():
@@ -198,11 +209,13 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--stage", required=True)
     ap.add_argument("--models", nargs="*", default=["gru", "transformer"])
+    ap.add_argument("--sampler-seed", type=int, default=42)
     args = ap.parse_args()
     stage = args.stage
     if stage == "tune_side":  # tune baseline models in a parallel process (same Optuna storage)
+        budget = {"mafnet": 24, "gru": 10, "transformer": 10}
         for m in args.models:
-            print("BEST", m, tune(m, 10), flush=True)
+            print("BEST", m, tune(m, budget[m], args.sampler_seed), flush=True)
         sys.exit(0)
     {"neural_baselines": neural_baselines, "tune": stage_tune, "seeds": stage_seeds, "ablation": stage_ablation,
-     "horizons": stage_horizons, "lookback": stage_lookback, "spatial": stage_spatial}[stage]()
+     "horizons": stage_horizons, "ablation_rev": lambda: stage_ablation(reverse=True), "lookback": stage_lookback, "spatial": stage_spatial}[stage]()

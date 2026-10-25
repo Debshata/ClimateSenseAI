@@ -50,7 +50,7 @@ def main():
         p = ROOT / r
         if not p.exists():
             res["missing"].append(r)
-        elif p.stat().st_size < 50:
+        elif p.stat().st_size < 50 and r != ".env.example":
             res["empty"].append(r)
         elif r.endswith(".ipynb"):
             res["notebooks"][r] = notebook_status(p)

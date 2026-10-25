@@ -42,15 +42,16 @@ def test_bootstrap_helpers():
 
 
 @pytest.mark.skipif(not (ROOT / "results/metrics/selected_model_test.json").exists(), reason="no trained model yet")
+@pytest.mark.skipif(not (ROOT / "data/processed/panel.parquet").exists(), reason="processed data not available (run prepare_data.py)")
 def test_selected_checkpoint_loads_and_reproduces_test_predictions():
     """Smoke test on real data: reload the selected checkpoint and reproduce stored test probabilities."""
     from climatesense.training.trainer import load_trained, predict
     from climatesense.utils import read_json
 
     sel = read_json(ROOT / "results/metrics/selected_model_test.json")["selected_run"]
-    group = sel.split("-")[0]
-    rec = read_json(ROOT / "experiments" / group / f"{sel}.json")
-    stored = np.load(ROOT / "results/predictions" / f"{sel}_test.npz")
+    rec = read_json(ROOT / "models/best/model_record.json")  # exported, Git-tracked checkpoint
+    assert rec["run_id"] == sel
+    stored = np.load(ROOT / "models/best/predictions_test.npz")
     model, batcher, _ = load_trained(rec)
     idx = stored["idx"][:2000]
     P, Y, _ = predict(model, batcher, idx)

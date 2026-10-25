@@ -1,0 +1,11 @@
+number,value,state,params,run_id,n_params
+0,0.7440628357214308,COMPLETE,"{'hidden': 64, 'layers': 1, 'dropout': 0.3, 'lr': 0.001, 'batch_size': 128, 'weight_decay': 0.0, 'loss': 'wce', 'heads': 2}",tuning-transformer-e06bf6263e,49156
+1,0.743237133218822,COMPLETE,"{'hidden': 128, 'layers': 1, 'dropout': 0.2, 'lr': 0.003, 'batch_size': 256, 'weight_decay': 0.0, 'loss': 'ce', 'heads': 4}",tuning-transformer-3c591c130e,188420
+2,0.7446146538891208,COMPLETE,"{'hidden': 64, 'layers': 2, 'dropout': 0.2, 'lr': 0.003, 'batch_size': 128, 'weight_decay': 0.001, 'loss': 'focal', 'heads': 4}",tuning-transformer-b7724f2a04,82628
+3,0.7438736454191147,COMPLETE,"{'hidden': 64, 'layers': 1, 'dropout': 0.3, 'lr': 0.0003, 'batch_size': 256, 'weight_decay': 0.0001, 'loss': 'ce', 'heads': 2}",tuning-transformer-54858d4e92,49156
+4,0.7454019726424211,COMPLETE,"{'hidden': 32, 'layers': 2, 'dropout': 0.2, 'lr': 0.003, 'batch_size': 128, 'weight_decay': 0.0, 'loss': 'ce', 'heads': 1}",tuning-transformer-32809cc60b,21860
+5,0.743986581286893,COMPLETE,"{'hidden': 128, 'layers': 1, 'dropout': 0.1, 'lr': 0.003, 'batch_size': 128, 'weight_decay': 0.001, 'loss': 'wce', 'heads': 1}",tuning-transformer-9bb697158f,188420
+6,0.7258288144153582,COMPLETE,"{'hidden': 128, 'layers': 2, 'dropout': 0.3, 'lr': 0.003, 'batch_size': 128, 'weight_decay': 0.0001, 'loss': 'focal', 'heads': 4}",tuning-transformer-ad13f9a893,320900
+7,0.7387750877040804,COMPLETE,"{'hidden': 32, 'layers': 1, 'dropout': 0.1, 'lr': 0.003, 'batch_size': 128, 'weight_decay': 0.001, 'loss': 'ce', 'heads': 2}",tuning-transformer-98a4a21a17,13316
+8,0.7399323722920808,COMPLETE,"{'hidden': 128, 'layers': 2, 'dropout': 0.2, 'lr': 0.0003, 'batch_size': 128, 'weight_decay': 0.001, 'loss': 'ce', 'heads': 4}",tuning-transformer-9ffa04aad1,320900
+9,0.7384708794970882,COMPLETE,"{'hidden': 32, 'layers': 2, 'dropout': 0.1, 'lr': 0.001, 'batch_size': 256, 'weight_decay': 0.0, 'loss': 'ce', 'heads': 4}",tuning-transformer-d75a414df3,21860

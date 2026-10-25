@@ -1,0 +1,62 @@
+{
+  "mafnet": {
+    "run_ids": [
+      "final-mafnet-4ac9637255",
+      "final-mafnet-45228b540b",
+      "final-mafnet-9f17d74c11",
+      "final-mafnet-920efefcf1",
+      "final-mafnet-f510af9c6f"
+    ],
+    "val_macro_f1_mean": 0.7421611059802805,
+    "val_macro_f1_std": 0.002275575403712376
+  },
+  "mafnet_concat": {
+    "run_ids": [
+      "final-mafnet-614884681b",
+      "final-mafnet-77cd9a490c",
+      "final-mafnet-c1e306aa01",
+      "final-mafnet-25cd3ae20c",
+      "final-mafnet-e514ce8b80"
+    ],
+    "val_macro_f1_mean": 0.7405651095868369,
+    "val_macro_f1_std": 0.002364466891987188
+  },
+  "gru": {
+    "run_ids": [
+      "final-gru-8efd03ecf9",
+      "final-gru-0053722e72",
+      "final-gru-045e4ab17e",
+      "final-gru-69a84db025",
+      "final-gru-1a5ebc5f6b"
+    ],
+    "val_macro_f1_mean": 0.7410434395789789,
+    "val_macro_f1_std": 0.0022008455880823978
+  },
+  "transformer": {
+    "run_ids": [
+      "final-transformer-f0cd82ee4a",
+      "final-transformer-872a298aa4",
+      "final-transformer-9092685988"
+    ],
+    "val_macro_f1_mean": 0.7438003333709403,
+    "val_macro_f1_std": 0.0022588323974862493
+  },
+  "lstm": {
+    "run_ids": [
+      "final-lstm-3bc81281fc",
+      "final-lstm-f7892469a6",
+      "final-lstm-8cfda168fe"
+    ],
+    "val_macro_f1_mean": 0.7390161638232687,
+    "val_macro_f1_std": 0.0023257111166424638
+  },
+  "rnn": {
+    "run_ids": [
+      "final-rnn-7041f7d12f",
+      "final-rnn-556f9141bf",
+      "final-rnn-8f83c47a92"
+    ],
+    "val_macro_f1_mean": 0.7398873288953572,
+    "val_macro_f1_std": 0.000520243618178666
+  }
+}

@@ -1,0 +1,178 @@
+[
+  {
+    "number": 0,
+    "value": 0.7423038292925975,
+    "state": "COMPLETE",
+    "params": {
+      "hidden": 64,
+      "layers": 1,
+      "dropout": 0.3,
+      "lr": 0.001,
+      "batch_size": 128,
+      "weight_decay": 0.0,
+      "loss": "wce"
+    },
+    "run_id": "tuning-gru-155be40f14",
+    "n_params": 24900
+  },
+  {
+    "number": 1,
+    "value": 0.740258405931648,
+    "state": "COMPLETE",
+    "params": {
+      "hidden": 64,
+      "layers": 2,
+      "dropout": 0.2,
+      "lr": 0.001,
+      "batch_size": 128,
+      "weight_decay": 0.001,
+      "loss": "ce"
+    },
+    "run_id": "tuning-gru-df23e4a212",
+    "n_params": 49860
+  },
+  {
+    "number": 2,
+    "value": null,
+    "state": "INTERRUPTED",
+    "params": {
+      "hidden": 32,
+      "layers": 1,
+      "dropout": 0.1,
+      "lr": 0.0003,
+      "batch_size": 256,
+      "weight_decay": 0.0001,
+      "loss": "wce"
+    },
+    "run_id": null,
+    "n_params": null
+  },
+  {
+    "number": 3,
+    "value": 0.7423038292925975,
+    "state": "COMPLETE",
+    "params": {
+      "hidden": 64,
+      "layers": 1,
+      "dropout": 0.3,
+      "lr": 0.001,
+      "batch_size": 128,
+      "weight_decay": 0.0,
+      "loss": "wce"
+    },
+    "run_id": "tuning-gru-155be40f14",
+    "n_params": 24900
+  },
+  {
+    "number": 4,
+    "value": 0.740258405931648,
+    "state": "COMPLETE",
+    "params": {
+      "hidden": 64,
+      "layers": 2,
+      "dropout": 0.2,
+      "lr": 0.001,
+      "batch_size": 128,
+      "weight_decay": 0.001,
+      "loss": "ce"
+    },
+    "run_id": "tuning-gru-df23e4a212",
+    "n_params": 49860
+  },
+  {
+    "number": 5,
+    "value": 0.738054124237403,
+    "state": "COMPLETE",
+    "params": {
+      "hidden": 32,
+      "layers": 1,
+      "dropout": 0.1,
+      "lr": 0.0003,
+      "batch_size": 256,
+      "weight_decay": 0.0001,
+      "loss": "wce"
+    },
+    "run_id": "tuning-gru-ea8b2e3b14",
+    "n_params": 8356
+  },
+  {
+    "number": 6,
+    "value": 0.7316769418680429,
+    "state": "COMPLETE",
+    "params": {
+      "hidden": 128,
+      "layers": 1,
+      "dropout": 0.1,
+      "lr": 0.0003,
+      "batch_size": 256,
+      "weight_decay": 0.0,
+      "loss": "ce"
+    },
+    "run_id": "tuning-gru-31afceea0c",
+    "n_params": 82564
+  },
+  {
+    "number": 7,
+    "value": 0.7317832930287227,
+    "state": "COMPLETE",
+    "params": {
+      "hidden": 32,
+      "layers": 2,
+      "dropout": 0.1,
+      "lr": 0.0003,
+      "batch_size": 256,
+      "weight_decay": 0.001,
+      "loss": "focal"
+    },
+    "run_id": "tuning-gru-6e2055c61a",
+    "n_params": 14692
+  },
+  {
+    "number": 8,
+    "value": 0.7398330001902608,
+    "state": "COMPLETE",
+    "params": {
+      "hidden": 64,
+      "layers": 2,
+      "dropout": 0.2,
+      "lr": 0.001,
+      "batch_size": 256,
+      "weight_decay": 0.001,
+      "loss": "wce"
+    },
+    "run_id": "tuning-gru-4d0d117c42",
+    "n_params": 49860
+  },
+  {
+    "number": 9,
+    "value": 0.7320799413030188,
+    "state": "COMPLETE",
+    "params": {
+      "hidden": 64,
+      "layers": 2,
+      "dropout": 0.3,
+      "lr": 0.003,
+      "batch_size": 256,
+      "weight_decay": 0.0,
+      "loss": "ce"
+    },
+    "run_id": "tuning-gru-a81164f7d7",
+    "n_params": 49860
+  },
+  {
+    "number": 10,
+    "value": 0.7432269266989433,
+    "state": "COMPLETE",
+    "params": {
+      "hidden": 64,
+      "layers": 2,
+      "dropout": 0.2,
+      "lr": 0.001,
+      "batch_size": 128,
+      "weight_decay": 0.0,
+      "loss": "wce"
+    },
+    "run_id": "tuning-gru-6ed15bf700",
+    "n_params": 49860
+  }
+]

@@ -1,0 +1,221 @@
+{
+  "selected_run": "final-mafnet-4ac9637255",
+  "n_test": 21192,
+  "obs_hour_correlation": {
+    "spearman_hour_vs_label_all_days": 0.346654248246285,
+    "spearman_hour_vs_heat_score_all_days": 0.3325777442893986,
+    "spearman_hour_vs_predicted_class_test": 0.3691471699882326
+  },
+  "by_longitude_band": [
+    {
+      "band": "Americas W (<-90\u00b0)",
+      "n": 512,
+      "sites": 5,
+      "median_local_hour": 19.0,
+      "share_high_critical": 0.001953125,
+      "macro_f1_mafnet": 0.4329223677471281,
+      "macro_f1_persistence": 0.41882278528109534,
+      "acc_mafnet": 0.9296875,
+      "acc_persistence": 0.916015625
+    },
+    {
+      "band": "Americas E (-90\u00b0\u2026-30\u00b0)",
+      "n": 3203,
+      "sites": 29,
+      "median_local_hour": 1.75,
+      "share_high_critical": 0.02372775522947237,
+      "macro_f1_mafnet": 0.5103840094359493,
+      "macro_f1_persistence": 0.5043410695139656,
+      "acc_mafnet": 0.8454573837027787,
+      "acc_persistence": 0.8351545426162972
+    },
+    {
+      "band": "Europe/Africa (-30\u00b0\u202630\u00b0)",
+      "n": 8399,
+      "sites": 72,
+      "median_local_hour": 7.75,
+      "share_high_critical": 0.03452791999047505,
+      "macro_f1_mafnet": 0.4987974748200537,
+      "macro_f1_persistence": 0.5309971551567608,
+      "acc_mafnet": 0.8499821407310394,
+      "acc_persistence": 0.8385522085962615
+    },
+    {
+      "band": "W/S Asia (30\u00b0\u202690\u00b0)",
+      "n": 5896,
+      "sites": 50,
+      "median_local_hour": 9.0,
+      "share_high_critical": 0.3583785617367707,
+      "macro_f1_mafnet": 0.7563324204042907,
+      "macro_f1_persistence": 0.7491027247309574,
+      "acc_mafnet": 0.7705223880597015,
+      "acc_persistence": 0.76780868385346
+    },
+    {
+      "band": "E Asia/Oceania (>90\u00b0)",
+      "n": 3182,
+      "sites": 27,
+      "median_local_hour": 14.75,
+      "share_high_critical": 0.3507228158390949,
+      "macro_f1_mafnet": 0.6939596038070401,
+      "macro_f1_persistence": 0.6768245208512343,
+      "acc_mafnet": 0.7030169704588309,
+      "acc_persistence": 0.6876178504085481
+    }
+  ],
+  "pm25_regimes": {
+    "regimes": [
+      {
+        "regime": "R1: to 2024-09-04",
+        "n": 19674,
+        "median": 5.1,
+        "p90": 31.5,
+        "share_above_who_aqg": 0.2250177899766189,
+        "share_air_score_ge2": 0.12844363118837043
+      },
+      {
+        "regime": "R2: 2024-09-05 to 2025-09-30",
+        "n": 72073,
+        "median": 18.5,
+        "p90": 63.825,
+        "share_above_who_aqg": 0.5935093585670085,
+        "share_air_score_ge2": 0.26585545211105405
+      },
+      {
+        "regime": "R3: from 2025-10-01",
+        "n": 68749,
+        "median": 11.05,
+        "p90": 39.05,
+        "share_above_who_aqg": 0.36719079550248,
+        "share_air_score_ge2": 0.13309284498683618
+      }
+    ],
+    "ks_statistic": {
+      "R1 vs R2": 0.4703425418351993,
+      "R2 vs R3": 0.23687347564164318,
+      "R1 vs R3": 0.3325668128083952
+    },
+    "note": "training spans R1-R3 (to 2026-01-21); validation and test lie entirely in R3"
+  },
+  "monthly_val_test": [
+    {
+      "month": "2026-02",
+      "n": 4399,
+      "split": "val",
+      "macro_f1_mafnet": 0.7498681093186653,
+      "macro_f1_persistence": 0.7252278899011867
+    },
+    {
+      "month": "2026-03",
+      "n": 5517,
+      "split": "val",
+      "macro_f1_mafnet": 0.7387532163335231,
+      "macro_f1_persistence": 0.7052630858809941
+    },
+    {
+      "month": "2026-04",
+      "n": 5497,
+      "split": "val",
+      "macro_f1_mafnet": 0.7478840835047609,
+      "macro_f1_persistence": 0.7182608499268526
+    },
+    {
+      "month": "2026-05",
+      "n": 5703,
+      "split": "val",
+      "macro_f1_mafnet": 0.7410553966155767,
+      "macro_f1_persistence": 0.7062652098475672
+    },
+    {
+      "month": "2026-06",
+      "n": 2893,
+      "split": "val",
+      "macro_f1_mafnet": 0.7445383184781718,
+      "macro_f1_persistence": 0.7168624869136161
+    },
+    {
+      "month": "2026-07",
+      "n": 5546,
+      "split": "test",
+      "macro_f1_mafnet": 0.7409357027049722,
+      "macro_f1_persistence": 0.7266667521125675
+    },
+    {
+      "month": "2026-08",
+      "n": 5514,
+      "split": "test",
+      "macro_f1_mafnet": 0.7297282524854538,
+      "macro_f1_persistence": 0.7160875006691008
+    },
+    {
+      "month": "2026-09",
+      "n": 5424,
+      "split": "test",
+      "macro_f1_mafnet": 0.7499147851682224,
+      "macro_f1_persistence": 0.7353961996121158
+    },
+    {
+      "month": "2026-10",
+      "n": 2183,
+      "split": "test",
+      "macro_f1_mafnet": 0.745410939437464,
+      "macro_f1_persistence": 0.7381625593129737
+    }
+  ],
+  "persistence_analysis": {
+    "test_label_persistence": 0.7938372970932427,
+    "subsets": [
+      {
+        "subset": "stable (class unchanged)",
+        "n": 16823,
+        "share": 0.7938372970932427,
+        "acc_mafnet": 0.9374071212031148,
+        "acc_hgb": 0.9382987576532129,
+        "acc_persistence": 1.0
+      },
+      {
+        "subset": "transition (class changes)",
+        "n": 4274,
+        "share": 0.201679879199698,
+        "acc_mafnet": 0.2931679925128685,
+        "acc_hgb": 0.26579316799251285,
+        "acc_persistence": 0.0
+      },
+      {
+        "subset": "onset of High/Critical",
+        "n": 606,
+        "share": 0.028595696489241224,
+        "acc_mafnet": 0.31518151815181517,
+        "acc_hgb": 0.31518151815181517,
+        "acc_persistence": 0.0
+      },
+      {
+        "subset": "end of High/Critical",
+        "n": 618,
+        "share": 0.029161947904869763,
+        "acc_mafnet": 0.24433656957928804,
+        "acc_hgb": 0.18284789644012944,
+        "acc_persistence": 0.0
+      }
+    ],
+    "onset_recall_high_or_critical": {
+      "mafnet": 0.3465346534653465,
+      "hgb": 0.35148514851485146,
+      "persistence": 0.0
+    },
+    "false_alarm_rate_hc_on_stable_low_moderate": {
+      "mafnet": 0.013562333432040273,
+      "hgb": 0.013740005922416346,
+      "persistence": 0.0
+    },
+    "balanced_accuracy_on_transitions": {
+      "mafnet": 0.2742919015013915,
+      "persistence": 0.0
+    }
+  },
+  "high_critical_detection": {
+    "maf": 0.8673526140155728,
+    "hgb": 0.8720800889877642,
+    "pers": 0.8314794215795328
+  }
+}

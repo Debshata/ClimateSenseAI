@@ -1,0 +1,18 @@
+{
+  "mafnet_L7": {
+    "run_ids": [
+      "lookback-mafnet-83ea6bcb8c",
+      "lookback-mafnet-9f7645c822",
+      "lookback-mafnet-a1aa15ed7e"
+    ],
+    "val_macro_f1_mean": 0.7407243262485684
+  },
+  "mafnet_L30": {
+    "run_ids": [
+      "lookback-mafnet-7eddf86499",
+      "lookback-mafnet-b5886d5aba",
+      "lookback-mafnet-782be09da1"
+    ],
+    "val_macro_f1_mean": 0.7387559816065585
+  }
+}

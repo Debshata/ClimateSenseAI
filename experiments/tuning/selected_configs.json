@@ -1,0 +1,44 @@
+{
+  "mafnet": {
+    "params": {
+      "hidden": 32,
+      "layers": 1,
+      "dropout": 0.3,
+      "lr": 0.001,
+      "batch_size": 256,
+      "weight_decay": 0.0,
+      "loss": "focal",
+      "encoder": "transformer",
+      "d_model": 32,
+      "heads": 2,
+      "modality_dropout": 0.0,
+      "token_self_attention": true
+    },
+    "val_macro_f1": 0.7455447343515638
+  },
+  "gru": {
+    "params": {
+      "hidden": 64,
+      "layers": 2,
+      "dropout": 0.2,
+      "lr": 0.001,
+      "batch_size": 128,
+      "weight_decay": 0.0,
+      "loss": "wce"
+    },
+    "val_macro_f1": 0.7432269266989433
+  },
+  "transformer": {
+    "params": {
+      "hidden": 32,
+      "layers": 2,
+      "dropout": 0.2,
+      "lr": 0.003,
+      "batch_size": 128,
+      "weight_decay": 0.0,
+      "loss": "ce",
+      "heads": 1
+    },
+    "val_macro_f1": 0.7454019726424211
+  }
+}

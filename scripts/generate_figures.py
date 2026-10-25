@@ -60,8 +60,8 @@ def roc_pr(y, P, title_suffix):
     axs[0].set_title(f"One-vs-rest ROC curves {title_suffix}")
     axs[1].set_xlabel("Recall"); axs[1].set_ylabel("Precision")
     axs[1].set_title(f"Precision-recall curves {title_suffix}")
-    for ax in axs:
-        ax.legend(loc="lower right" if ax is axs[0] else "upper right", fontsize=7)
+    axs[0].legend(loc="lower right", fontsize=7)
+    axs[1].legend(loc="lower left", fontsize=7)
     pd.DataFrame(rows).to_csv(DATA / "roc_pr_auc_selected.csv", index=False)
     return fig
 
@@ -79,7 +79,7 @@ def architecture(path):
 
     rows = [("Climate sequence\n14 d × 18 features", "Temporal encoder A\n(GRU/LSTM/Transformer)", 42),
             ("Air-quality sequence\n14 d × 10 features", "Temporal encoder B\n(GRU)", 31),
-            ("Dryness-proxy sequence\n14 d × 10 features", "Temporal encoder C\n(GRU)", 20),
+            ("Dryness-proxy seq.\n14 d × 10 features", "Temporal encoder C\n(GRU)", 20),
             ("Static context\n8 features", "Context MLP D", 9)]
     for inp, enc, y in rows:
         box(1, y, 17, 7, inp, "#eef4fc")
@@ -138,11 +138,27 @@ def main():
             error_kw={"ecolor": MUTED, "lw": 1})
     ax.barh(yy - 0.2, mc.balanced_accuracy, height=0.38, color=SERIES[1], label="Test balanced accuracy")
     ax.set_yticks(yy, mc.model); ax.set_xlim(max(0, mc.macro_f1.min() - 0.1), min(1, mc[["macro_f1", "balanced_accuracy"]].max().max() + 0.03))
-    for i, v in enumerate(mc.macro_f1):
-        ax.text(v + 0.002, i + 0.2, f"{v:.3f}", va="center", fontsize=6.5, color=TEXT)
-    ax.legend(loc="lower right"); ax.grid(axis="y", visible=False)
+    for i, (v, sd) in enumerate(zip(mc.macro_f1, mc.macro_f1_std.fillna(0))):
+        ax.text(v + sd + 0.003, i + 0.2, f"{v:.3f}", va="center", fontsize=6.5, color=TEXT)
+    ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.08), ncol=2); ax.grid(axis="y", visible=False)
     ax.set_title("Held-out test performance, horizon t+1 (mean ± s.d. over seeds)")
     save(fig, FIG / "model_comparison.png")
+
+    # compact single-column version for the IEEE report
+    short = {"MAF-Net (proposed, attention fusion)": "MAF-Net (proposed)", "MAF-Net w/o attention (concat fusion)": "MAF-Net, concat fusion",
+             "Transformer encoder (tuned)": "Transformer (tuned)", "Gradient boosting (HistGB)": "Gradient boosting",
+             "Persistence (today's class)": "Persistence", "Site-month climatology": "Climatology"}
+    mcc = mc[mc.model != "Site-month climatology"]
+    fig, ax = plt.subplots(figsize=(3.6, 3.9))
+    yy = np.arange(len(mcc))
+    ax.barh(yy, mcc.macro_f1, height=0.7, xerr=mcc.macro_f1_std.fillna(0), color=[SERIES[1] if m.startswith("MAF-Net (p") else SERIES[0] for m in mcc.model],
+            error_kw={"ecolor": MUTED, "lw": 1})
+    for i, (v, sd) in enumerate(zip(mcc.macro_f1, mcc.macro_f1_std.fillna(0))):
+        ax.text(v + sd + 0.003, i, f"{v:.3f}", va="center", fontsize=7, color=TEXT)
+    ax.set_yticks(yy, [short.get(m, m) for m in mcc.model], fontsize=7.5)
+    ax.set_xlim(0.5, 0.775); ax.set_xlabel("Test macro-F1 (mean ± s.d. over seeds)"); ax.grid(axis="y", visible=False)
+    ax.set_title("Held-out test, h = 1", fontsize=9)
+    save(fig, FIG / "model_comparison_column.png")
 
     # ablation
     ab = pd.read_csv(ROOT / "results/tables/ablation.csv").sort_values("macro_f1")
@@ -191,6 +207,29 @@ def main():
     ax.set_xlabel("Trial"); ax.set_ylabel("Validation macro-F1"); ax.set_title("Optuna TPE search (line = running best)")
     ax.legend()
     save(fig, FIG / "optuna_trials.png")
+
+    # look-back sensitivity (validation: selection-relevant; test: reported for completeness)
+    lb = pd.read_csv(ROOT / "results/tables/lookback.csv").sort_values("lookback")
+    lb.to_csv(DATA / "lookback.csv", index=False)
+    fig, ax = plt.subplots(figsize=(4.8, 3.2))
+    ax.errorbar(lb.lookback, lb.val_macro_f1, yerr=lb.val_macro_f1_std, marker="o", color=SERIES[0], capsize=2, label="Validation")
+    ax.errorbar(lb.lookback, lb.macro_f1, yerr=lb.macro_f1_std, marker="s", color=SERIES[1], capsize=2, label="Test")
+    ax.set_xticks(lb.lookback); ax.set_xlabel("Look-back window (days)"); ax.set_ylabel("Macro-F1 (3 seeds)")
+    ax.set_title("MAF-Net look-back sensitivity"); ax.legend()
+    save(fig, FIG / "lookback.png")
+
+    # geographic hold-out
+    sp = pd.read_csv(ROOT / "results/tables/spatial_holdout.csv")
+    sp.to_csv(DATA / "spatial_holdout.csv", index=False)
+    lab = {"mafnet": "MAF-Net", "gru": "GRU", "persistence": "Persistence"}
+    fig, ax = plt.subplots(figsize=(5.2, 3.2))
+    x = np.arange(len(sp))
+    ax.bar(x - 0.2, sp.heldout_macro_f1, 0.38, yerr=sp.get("heldout_macro_f1_std", pd.Series(0, index=sp.index)).fillna(0),
+           color=SERIES[0], label="Unseen sites (20 %)", error_kw={"ecolor": MUTED, "lw": 1})
+    ax.bar(x + 0.2, sp.seen_sites_macro_f1, 0.38, color=SERIES[2], label="Training sites")  # NaN for persistence: not drawn
+    ax.set_xticks(x, [lab.get(m, m) for m in sp.model]); ax.set_ylabel("Test macro-F1")
+    ax.set_ylim(0, 1); ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.1), ncol=2); ax.set_title("Spatial generalisation (test period)")
+    save(fig, FIG / "spatial_holdout.png")
 
     architecture(FIG / "architecture_mafnet.png")
     print("figures written to", FIG)
